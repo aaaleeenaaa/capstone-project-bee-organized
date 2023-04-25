@@ -1,4 +1,8 @@
-# Capstone Project Template
+# Capstone Project 
+
+
+**Bee organized** offers beekeepers the opportunity to organize their locations and bee colonies and to easily store information about them. 
+
 
 This project was created from the neuefische Next.js template.
 
