@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 const CardElement = styled.div`
   padding: 1em 3em;
@@ -8,7 +9,7 @@ const CardElement = styled.div`
   border-radius: 10px;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 

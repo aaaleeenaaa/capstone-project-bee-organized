@@ -1,6 +1,6 @@
 import Header from "./Header.js";
 import styled from "styled-components";
-import Head from "next/head.js";
+import Head from "next/head";
 
 const Main = styled.main`
   margin-top: 5rem;
