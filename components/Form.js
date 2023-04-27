@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React from "react";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 const Label = styled.label`
   font-weight: bold;
@@ -34,6 +33,7 @@ export default function Form({ onAddLocation }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const locationData = Object.fromEntries(formData);
+
     onAddLocation(locationData);
     router.push("/");
   }
@@ -41,7 +41,7 @@ export default function Form({ onAddLocation }) {
   return (
     <FormContainer onSubmit={handleSubmit}>
       <Label htmlFor="location">Add a new location</Label>
-      <Input id="location" name="location" type="text" />
+      <Input id="location" name="location" type="text" required />
       <StyledSubmitButton type="submit">Submit</StyledSubmitButton>
     </FormContainer>
   );

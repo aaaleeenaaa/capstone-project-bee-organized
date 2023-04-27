@@ -1,7 +1,5 @@
 import Card from "./Card";
 import styled from "styled-components";
-import useSWR from "swr";
-import { useRouter } from "next/router";
 
 const StyledList = styled.ul`
   display: flex;
@@ -10,20 +8,11 @@ const StyledList = styled.ul`
   padding-left: 0;
 `;
 
-export default function LocationList() {
-  const router = useRouter();
-  const { data, isLoading } = useSWR("/api/locations");
-
-  if (!data) return;
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-
+export default function LocationList({ locations }) {
   return (
     <StyledList>
-      {data.map((location) => (
-        <Card location={location} key={location.index} />
+      {locations.map((location, index) => (
+        <Card location={location} key={index} />
       ))}
     </StyledList>
   );

@@ -7,6 +7,7 @@ const CardElement = styled.div`
   text-align: center;
   border: 3px grey solid;
   border-radius: 10px;
+  width: 50em;
 `;
 
 const StyledLink = styled(Link)`
@@ -17,12 +18,12 @@ const StyledListElement = styled.li`
   list-style-type: none;
 `;
 
-export default function Card({ locationData }) {
+export default function Card({ location }) {
   return (
     <StyledListElement>
       <StyledLink href="#">
         <CardElement h>
-          <p>{locationData}</p>
+          <p>{location.location}</p>
         </CardElement>
       </StyledLink>
     </StyledListElement>
