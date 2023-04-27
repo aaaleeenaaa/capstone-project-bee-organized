@@ -17,11 +17,13 @@ const StyledListElement = styled.li`
   list-style-type: none;
 `;
 
-export default function Card() {
+export default function Card({ locationData }) {
   return (
     <StyledListElement>
       <StyledLink href="#">
-        <CardElement>Name of Location</CardElement>
+        <CardElement h>
+          <p>{locationData}</p>
+        </CardElement>
       </StyledLink>
     </StyledListElement>
   );
