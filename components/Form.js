@@ -41,7 +41,14 @@ export default function Form({ onAddLocation }) {
   return (
     <FormContainer onSubmit={handleSubmit}>
       <Label htmlFor="location">Add a new location</Label>
-      <Input id="location" name="location" type="text" required />
+      <Input
+        id="location"
+        name="location"
+        type="text"
+        maxlength="30"
+        minlength="3"
+        required
+      />
       <StyledSubmitButton type="submit">Submit</StyledSubmitButton>
     </FormContainer>
   );

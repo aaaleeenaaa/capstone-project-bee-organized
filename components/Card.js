@@ -7,7 +7,6 @@ const CardElement = styled.div`
   text-align: center;
   border: 3px grey solid;
   border-radius: 10px;
-  width: 50em;
 `;
 
 const StyledLink = styled(Link)`
