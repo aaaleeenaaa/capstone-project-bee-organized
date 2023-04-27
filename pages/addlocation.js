@@ -19,13 +19,6 @@ import { useState } from "react";
 //   console.log(status);
 // }
 
-export default function AddLocationPage() {
-  const [location, setLocation] = useState("");
-  const router = useRouter();
-
-  function handleAddLocation(newLocation) {
-    setLocation(newLocation);
-  }
-
-  return <Form onAddLocation={handleAddLocation} location={location} />;
+export default function AddLocationPage({ onAddLocation }) {
+  return <Form onAddLocation={onAddLocation} />;
 }

@@ -10,20 +10,22 @@ const StyledList = styled.ul`
   padding-left: 0;
 `;
 
-export default function LocationList() {
-  const router = useRouter();
-  const { data, isLoading } = useSWR("/api/locations");
+export default function LocationList({ locations }) {
+  // const router = useRouter();
+  // const { data, isLoading } = useSWR("/api/locations");
 
-  if (!data) return;
+  // if (!data) return;
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
+  // if (isLoading) {
+  //   return <h1>Loading...</h1>;
+  // }
+
+  console.log(locations);
 
   return (
     <StyledList>
-      {data.map((location) => (
-        <Card location={location} key={location.index} />
+      {locations.map((location, index) => (
+        <Card location={location} key={index} />
       ))}
     </StyledList>
   );

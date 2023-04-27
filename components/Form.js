@@ -34,6 +34,7 @@ export default function Form({ onAddLocation }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const locationData = Object.fromEntries(formData);
+
     onAddLocation(locationData);
     router.push("/");
   }

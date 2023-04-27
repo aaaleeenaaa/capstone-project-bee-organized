@@ -4,12 +4,12 @@ import Card from "@/components/Card";
 import useSWR from "swr";
 import { useState } from "react";
 
-export default function HomePage({ location }) {
+export default function HomePage({ locations }) {
   // const { data } = useSWR("/api/locations", { fallbackData: [] });
 
   return (
     <>
-      <LocationList location={location} />
+      <LocationList locations={locations} />
 
       <AddButton />
     </>

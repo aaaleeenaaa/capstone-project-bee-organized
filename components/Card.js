@@ -17,12 +17,12 @@ const StyledListElement = styled.li`
   list-style-type: none;
 `;
 
-export default function Card({ locationData }) {
+export default function Card({ location }) {
   return (
     <StyledListElement>
       <StyledLink href="#">
-        <CardElement h>
-          <p>{locationData}</p>
+        <CardElement>
+          <p>{location.location}</p>
         </CardElement>
       </StyledLink>
     </StyledListElement>
