@@ -1,5 +1,6 @@
-import Card from "@/components/Card";
+import LocationCard from "@/components/LocationCard";
 import { useRouter } from "next/router";
+import ColonyList from "@/components/ColonyList";
 
 export default function LocationDetailsPage({ locations }) {
   const router = useRouter();
@@ -9,7 +10,8 @@ export default function LocationDetailsPage({ locations }) {
 
   return (
     <>
-      <Card location={result} />
+      <LocationCard location={result} />
+      <ColonyList />
     </>
   );
 }

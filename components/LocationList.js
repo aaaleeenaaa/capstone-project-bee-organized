@@ -1,14 +1,8 @@
-import Card from "./Card";
+import LocationCard from "./LocationCard";
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-const StyledList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 0;
-`;
+import { StyledList } from "./StyledList";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -26,7 +20,7 @@ export default function LocationList({ locations }) {
           key={id}
           locations={locations}
         >
-          <Card location={location} />
+          <LocationCard location={location} />
         </StyledLink>
       ))}
     </StyledList>
