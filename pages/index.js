@@ -1,5 +1,12 @@
 import LocationList from "@/components/LocationList";
+import StyledAddButton from "@/components/StyledAddButton";
 
-export default function HomePage() {
-  return <LocationList />;
+export default function HomePage({ locations }) {
+  return (
+    <>
+      <LocationList locations={locations} />
+
+      <StyledAddButton />
+    </>
+  );
 }
