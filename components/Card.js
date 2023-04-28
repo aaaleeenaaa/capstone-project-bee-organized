@@ -21,7 +21,7 @@ export default function Card({ location }) {
   return (
     <StyledListElement>
       <StyledLink href="#">
-        <CardElement h>
+        <CardElement>
           <p>{location.location}</p>
         </CardElement>
       </StyledLink>
