@@ -5,11 +5,11 @@ export default function LocationDetailsPage({ locations }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const result = locations.filter((location) => location.id === id);
+  const result = locations[id];
 
   return (
     <>
-      <Card location={location} />
+      <Card location={result} />
     </>
   );
 }
