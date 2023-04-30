@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import Layout from "../components/Layout.js";
 import { useState } from "react";
+// import { nanoid } from "nanoid";
 
 export default function App({ Component, pageProps }) {
   const [locations, setLocations] = useState([]);
