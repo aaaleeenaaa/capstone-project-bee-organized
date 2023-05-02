@@ -1,10 +1,10 @@
 import LocationList from "@/components/LocationList";
 import StyledAddButton from "@/components/StyledAddButton";
 
-export default function HomePage({ locations, id }) {
+export default function HomePage({ locations }) {
   return (
     <>
-      <LocationList locations={locations} id={id} />
+      <LocationList locations={locations} />
 
       <StyledAddButton />
     </>

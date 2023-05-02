@@ -10,13 +10,9 @@ const StyledLink = styled(Link)`
 export default function LocationList({ locations }) {
   return (
     <StyledList>
-      {locations.map((location, id) => {
+      {locations.map((location) => {
         return (
-          <StyledLink
-            href={`/locationdetail/${id}`}
-            key={id}
-            locations={locations}
-          >
+          <StyledLink href={`/locationdetail/${location.id}`} key={location.id}>
             <LocationCard location={location} />
           </StyledLink>
         );

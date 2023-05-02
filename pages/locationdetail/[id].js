@@ -6,7 +6,7 @@ export default function LocationDetailsPage({ locations }) {
   const router = useRouter();
   const id = router.query.id;
 
-  const result = locations[id];
+  const result = locations.find((location) => location.id === id);
 
   return (
     <>
