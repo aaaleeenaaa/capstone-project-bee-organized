@@ -2,7 +2,6 @@ import LocationCard from "./LocationCard";
 import styled from "styled-components";
 import Link from "next/link";
 import { StyledList } from "./StyledList";
-import { nanoid } from "nanoid";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
