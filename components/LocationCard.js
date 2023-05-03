@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CardElement = styled.article`
+export const CardElement = styled.article`
   padding: 1em 3em;
   margin: 15px 0px;
   text-align: center;
@@ -8,7 +8,7 @@ const CardElement = styled.article`
   border-radius: 10px;
 `;
 
-const StyledListElement = styled.li`
+export const StyledListElement = styled.li`
   list-style-type: none;
 `;
 

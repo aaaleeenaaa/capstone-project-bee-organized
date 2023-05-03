@@ -6,7 +6,7 @@ export default function HomePage({ locations }) {
     <>
       <LocationList locations={locations} />
 
-      <StyledAddButton />
+      <StyledAddButton href={"/addlocation"} />
     </>
   );
 }

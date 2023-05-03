@@ -1,8 +1,9 @@
 import LocationCard from "@/components/LocationCard";
 import { useRouter } from "next/router";
 import ColonyList from "@/components/ColonyList";
+import StyledAddButton from "@/components/StyledAddButton";
 
-export default function LocationDetailsPage({ locations }) {
+export default function LocationDetailsPage({ locations, colonies }) {
   const router = useRouter();
   const id = router.query.id;
 
@@ -11,7 +12,8 @@ export default function LocationDetailsPage({ locations }) {
   return (
     <>
       <LocationCard location={result} />
-      <ColonyList />
+      <ColonyList colonies={colonies} />
+      <StyledAddButton href={"/addcolony"} />
     </>
   );
 }

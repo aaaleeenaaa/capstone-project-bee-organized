@@ -1,23 +1,10 @@
-import styled from "styled-components";
-import Link from "next/link";
+import { CardElement, StyledListElement } from "./LocationCard";
 
-const CardElement = styled.div`
-  padding: 1em 3em;
-  margin: 15px 0px;
-  text-align: center;
-  border: 3px grey solid;
-  border-radius: 10px;
-`;
-
-const StyledListElement = styled.li`
-  list-style-type: none;
-`;
-
-export default function ColonyCard() {
+export default function ColonyCard({ colony }) {
   return (
     <StyledListElement>
       <CardElement>
-        <p>Bee colony</p>
+        <p>{colony?.colony}</p>
       </CardElement>
     </StyledListElement>
   );

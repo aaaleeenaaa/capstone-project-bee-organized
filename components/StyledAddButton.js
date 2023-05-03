@@ -13,9 +13,9 @@ const AddButton = styled.button`
   font-size: 2em;
 `;
 
-export default function StyledAddButton() {
+export default function StyledAddButton({ href }) {
   return (
-    <Link href="/addlocation">
+    <Link href={href}>
       <AddButton type="button">+</AddButton>
     </Link>
   );
