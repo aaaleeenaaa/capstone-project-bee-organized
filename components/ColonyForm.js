@@ -26,8 +26,8 @@ export default function ColonyForm({ onAddColony }) {
         id="colony"
         name="colony"
         type="text"
-        maxlength="30"
-        minlength="3"
+        maxLength="30"
+        minLength="3"
         required
       />
       <StyledSubmitButton type="submit">Submit</StyledSubmitButton>

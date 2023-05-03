@@ -45,8 +45,8 @@ export default function LocationForm({ onAddLocation }) {
         id="location"
         name="location"
         type="text"
-        maxlength="30"
-        minlength="3"
+        maxLength="30"
+        minLength="3"
         required
       />
       <StyledSubmitButton type="submit">Submit</StyledSubmitButton>
