@@ -1,19 +1,22 @@
-import Card from "./Card";
+import LocationCard from "./LocationCard";
 import styled from "styled-components";
+import Link from "next/link";
+import { StyledList } from "./StyledList";
 
-const StyledList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 0;
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 export default function LocationList({ locations }) {
   return (
     <StyledList>
-      {locations.map((location, index) => (
-        <Card location={location} key={index} />
-      ))}
+      {locations.map((location) => {
+        return (
+          <StyledLink href={`/locationdetail/${location.id}`} key={location.id}>
+            <LocationCard location={location} />
+          </StyledLink>
+        );
+      })}
     </StyledList>
   );
 }

@@ -9,22 +9,16 @@ const CardElement = styled.div`
   border-radius: 10px;
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
-
 const StyledListElement = styled.li`
   list-style-type: none;
 `;
 
-export default function Card({ location }) {
+export default function ColonyCard() {
   return (
     <StyledListElement>
-      <StyledLink href="#">
-        <CardElement>
-          <p>{location.location}</p>
-        </CardElement>
-      </StyledLink>
+      <CardElement>
+        <p>Bee colony</p>
+      </CardElement>
     </StyledListElement>
   );
 }
