@@ -5,9 +5,14 @@ import { nanoid } from "nanoid";
 
 export default function App({ Component, pageProps }) {
   const [locations, setLocations] = useState([]);
+  const [colonies, setColonies] = useState([]);
 
   function handleAddLocation(newLocation) {
     setLocations([...locations, { ...newLocation, id: nanoid() }]);
+  }
+
+  function handleAddColony(newColony) {
+    setColonies([...colonies, { ...newColony, id: nanoid() }]);
   }
 
   return (
@@ -18,6 +23,8 @@ export default function App({ Component, pageProps }) {
           {...pageProps}
           onAddLocation={handleAddLocation}
           locations={locations}
+          onAddColony={handleAddColony}
+          colonies={colonies}
         />
       </Layout>
     </>

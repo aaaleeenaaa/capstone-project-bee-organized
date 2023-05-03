@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import { StyledList } from "./StyledList";
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
