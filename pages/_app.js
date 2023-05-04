@@ -6,6 +6,7 @@ import { nanoid } from "nanoid";
 export default function App({ Component, pageProps }) {
   const [locations, setLocations] = useState([]);
   const [colonies, setColonies] = useState([]);
+  const [todos, setTodos] = useState([]);
 
   function handleAddLocation(newLocation) {
     setLocations([...locations, { ...newLocation, id: nanoid() }]);
@@ -13,6 +14,10 @@ export default function App({ Component, pageProps }) {
 
   function handleAddColony(newColony) {
     setColonies([...colonies, { ...newColony, id: nanoid() }]);
+  }
+
+  function handleAddTodo(newTodo) {
+    setTodos([...todos, { ...newTodo, id: nanoid(), completed: false }]);
   }
 
   return (
@@ -25,6 +30,9 @@ export default function App({ Component, pageProps }) {
           locations={locations}
           onAddColony={handleAddColony}
           colonies={colonies}
+          onAddTodo={handleAddTodo}
+          todos={todos}
+          setTodos={setTodos}
         />
       </Layout>
     </>
