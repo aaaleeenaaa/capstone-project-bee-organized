@@ -7,7 +7,7 @@ export default function ColonyList({ colonies }) {
     <StyledList>
       {colonies.map((colony) => {
         return (
-          <StyledLink href={"#"} key={colony.id}>
+          <StyledLink href={`/colonydetail/${colony.id}`} key={colony.id}>
             <ColonyCard colony={colony} />
           </StyledLink>
         );
