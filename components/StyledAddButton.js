@@ -7,7 +7,7 @@ const AddButton = styled.button`
   border: 1px grey solid;
   border-radius: 50%;
   position: fixed;
-  bottom: 10px;
+  bottom: 90px;
   right: 10px;
   padding: 0.5em 0.8em;
   font-size: 2em;
