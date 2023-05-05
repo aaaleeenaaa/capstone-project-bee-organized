@@ -13,7 +13,7 @@ export default function ColonyDetailsPage({ colonies }) {
     <>
       <ColonyCard colony={result} />
       <ColonyQuestions />
-      <StyledLink href={`/locationdetail/${location.id}`}>←</StyledLink>
+      <StyledLink href={`/locationdetail/${id}`}>←</StyledLink>
     </>
   );
 }
