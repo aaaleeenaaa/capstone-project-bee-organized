@@ -45,7 +45,7 @@ export default function NavBar() {
           <AiFillHome color="black" />
         </NavSection>
       </Link>
-      <Link href="/#">
+      <Link href="/overview">
         <NavSection
           isActive={activeItem === "overview"}
           onClick={() => handleClick("overview")}
@@ -53,7 +53,7 @@ export default function NavBar() {
           <GiBeehive color="black" />
         </NavSection>
       </Link>
-      <Link href="/#">
+      <Link href="/weather">
         <NavSection
           isActive={activeItem === "weather"}
           onClick={() => handleClick("weather")}
@@ -69,7 +69,7 @@ export default function NavBar() {
           <GrTask color="black" />
         </NavSection>
       </Link>
-      <Link href="/#">
+      <Link href="/profile">
         <NavSection
           isActive={activeItem === "profile"}
           onClick={() => handleClick("profile")}
