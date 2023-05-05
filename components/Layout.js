@@ -1,6 +1,7 @@
 import Header from "./Header.js";
 import styled from "styled-components";
 import Head from "next/head";
+import NavBar from "./Navbar.js";
 
 const Main = styled.main`
   margin-top: 5rem;
@@ -14,6 +15,7 @@ export default function Layout({ children }) {
       </Head>
       <Header />
       <Main>{children}</Main>
+      <NavBar />
     </>
   );
 }
