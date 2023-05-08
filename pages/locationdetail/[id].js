@@ -1,28 +1,36 @@
-import LocationCard from "@/components/LocationCard";
+import Card from "@/components/Card";
 import { useRouter } from "next/router";
-import ColonyList from "@/components/ColonyList";
-import StyledAddButton from "@/components/StyledAddButton";
 import Link from "next/link";
-import styled from "styled-components";
-
-export const StyledLink = styled(Link)`
-  position: fixed;
-  bottom: 100px;
-  left: 10px;
-`;
+import StyledAddButton, { StyledBackButton } from "@/components/StyledButtons";
+import { StyledList } from "@/components/StyledList";
 
 export default function LocationDetailsPage({ locations, colonies }) {
   const router = useRouter();
-  const id = router.query.id;
+  const { id } = router.query;
+  const locationId = id;
 
   const result = locations.find((location) => location.id === id);
 
+  const filteredColonies = colonies.filter(
+    (colony) => colony.locationId === locationId
+  );
+
   return (
     <>
-      <LocationCard location={result} />
-      <ColonyList colonies={colonies} />
-      <StyledLink href="/">←</StyledLink>
-      <StyledAddButton href={"/addcolony"} />
+      <Card text={result?.location} />
+      <StyledList>
+        {filteredColonies.map((colony) => {
+          return (
+            <Link href={`/colonydetail/${colony.id}`} key={colony.id}>
+              <Card text={colony?.colony} />
+            </Link>
+          );
+        })}
+      </StyledList>
+
+      <StyledAddButton href={`/locationdetail/addcolony/${id}`} />
+
+      <StyledBackButton onClick={() => router.push("/")}>←</StyledBackButton>
     </>
   );
 }

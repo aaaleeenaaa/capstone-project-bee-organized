@@ -12,8 +12,11 @@ export default function App({ Component, pageProps }) {
     setLocations([...locations, { ...newLocation, id: nanoid() }]);
   }
 
-  function handleAddColony(newColony) {
-    setColonies([...colonies, { ...newColony, id: nanoid() }]);
+  function handleAddColony(newColony, locationId) {
+    setColonies([
+      ...colonies,
+      { ...newColony, id: nanoid(), locationId: locationId },
+    ]);
   }
 
   function handleAddTodo(newTodo) {

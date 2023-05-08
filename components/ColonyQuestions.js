@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FormContainer } from "./LocationForm";
+import { FormContainer } from "./Form";
 
 const StyledQuestionCard = styled.section`
   display: flex;

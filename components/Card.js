@@ -12,15 +12,11 @@ export const StyledListElement = styled.li`
   list-style-type: none;
 `;
 
-export default function LocationCard({ location }) {
-  if (!location) {
-    return null;
-  }
-
+export default function Card({ text }) {
   return (
     <StyledListElement>
       <CardElement>
-        <p>{location?.location}</p>
+        <p>{text}</p>
       </CardElement>
     </StyledListElement>
   );

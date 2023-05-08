@@ -22,6 +22,7 @@ const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   opacity: 75%;
+  height: 55px;
 `;
 
 const NavSection = styled.section`

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import { useRouter } from "next/router";
+import { StyledSubmitButton } from "./StyledButtons";
 
 export const Label = styled.label`
   font-weight: bold;
@@ -19,37 +20,33 @@ export const FormContainer = styled.form`
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+  flex-grow: 1;
+  margin-bottom: 55px;
 `;
 
-export const StyledSubmitButton = styled.button`
-  padding: 0.5em;
-  width: 20%;
-`;
-
-export default function LocationForm({ onAddLocation }) {
+export default function Form({ onSubmit, formTopic, label }) {
   const router = useRouter();
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const locationData = Object.fromEntries(formData);
+    const data = Object.fromEntries(formData);
 
-    onAddLocation(locationData);
-    router.push("/");
+    onSubmit(data);
   }
 
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <Label htmlFor="location">Add a new location</Label>
+      <Label htmlFor={formTopic}>{label}</Label>
       <Input
-        id="location"
-        name="location"
+        id={formTopic}
+        name={formTopic}
         type="text"
         maxLength="30"
         minLength="3"
         required
       />
-      <StyledSubmitButton type="submit">Submit</StyledSubmitButton>
+      <StyledSubmitButton />
     </FormContainer>
   );
 }

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import ColonyCard from "@/components/ColonyCard";
+import Card from "@/components/Card";
 import ColonyQuestions from "@/components/ColonyQuestions";
-import { StyledLink } from "../locationdetail/[id]";
+import { StyledBackButton } from "@/components/StyledButtons";
 
 export default function ColonyDetailsPage({ colonies }) {
   const router = useRouter();
@@ -11,9 +11,9 @@ export default function ColonyDetailsPage({ colonies }) {
 
   return (
     <>
-      <ColonyCard colony={result} />
+      <Card text={result?.colony} />
       <ColonyQuestions />
-      <StyledLink href={`/locationdetail/${id}`}>←</StyledLink>
+      <StyledBackButton onClick={() => router.back()}>←</StyledBackButton>
     </>
   );
 }

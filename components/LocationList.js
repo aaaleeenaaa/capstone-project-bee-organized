@@ -1,4 +1,4 @@
-import LocationCard from "./LocationCard";
+import Card from "./Card";
 import styled from "styled-components";
 import Link from "next/link";
 import { StyledList } from "./StyledList";
@@ -13,7 +13,7 @@ export default function LocationList({ locations }) {
       {locations.map((location) => {
         return (
           <StyledLink href={`/locationdetail/${location.id}`} key={location.id}>
-            <LocationCard location={location} />
+            <Card text={location?.location} />
           </StyledLink>
         );
       })}
