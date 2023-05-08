@@ -6,7 +6,10 @@ export default function AddLocationPage({ onAddLocation }) {
   const router = useRouter();
 
   function handleSubmit(data) {
-    onAddLocation(data);
+    const renamedData = {
+      locationName: data.location,
+    };
+    onAddLocation(renamedData);
     router.push("/");
   }
 

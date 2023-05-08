@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import { useRouter } from "next/router";
-import { StyledSubmitButton } from "./StyledButtons";
+import StyledSubmitButton from "./StyledSubmitButton";
 
 export const Label = styled.label`
   font-weight: bold;

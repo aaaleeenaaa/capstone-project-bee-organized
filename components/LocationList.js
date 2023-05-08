@@ -13,7 +13,7 @@ export default function LocationList({ locations }) {
       {locations.map((location) => {
         return (
           <StyledLink href={`/locationdetail/${location.id}`} key={location.id}>
-            <Card text={location?.location} />
+            <Card text={location?.locationName} />
           </StyledLink>
         );
       })}

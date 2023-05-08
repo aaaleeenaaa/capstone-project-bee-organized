@@ -7,18 +7,19 @@ export default function AddColonyPage({ onAddColony }) {
   const { id: locationId } = router.query;
 
   function handleSubmit(data) {
-    onAddColony(data, locationId);
+    const renamedData = {
+      colonyName: data.colony,
+    };
+    onAddColony(renamedData, locationId);
     router.push(`/locationdetail/${locationId}`);
   }
 
   return (
-    <>
-      <Form
-        onSubmit={handleSubmit}
-        formTopic={"colony"}
-        label={"Add a new colony:"}
-        locationId={locationId}
-      />
-    </>
+    <Form
+      onSubmit={handleSubmit}
+      formTopic={"colony"}
+      label={"Add a new colony:"}
+      locationId={locationId}
+    />
   );
 }
