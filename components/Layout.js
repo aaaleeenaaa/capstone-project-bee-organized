@@ -5,7 +5,7 @@ import NavBar from "./Navbar.js";
 
 const Main = styled.main`
   margin-top: 5rem;
-  margin-bottom: 55px;
+  margin-bottom: 3.5rem;
 `;
 
 export default function Layout({ children }) {

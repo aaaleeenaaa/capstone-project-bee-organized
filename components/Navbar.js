@@ -21,8 +21,7 @@ const Navbar = styled.nav`
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  opacity: 75%;
-  height: 55px;
+  height: 3.5rem;
 `;
 
 const NavSection = styled.section`
