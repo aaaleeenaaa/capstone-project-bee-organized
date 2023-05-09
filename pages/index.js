@@ -1,5 +1,5 @@
 import LocationList from "@/components/LocationList";
-import StyledAddLink from "@/components/StyledAddLink";
+import StyledAddLink from "@/components/StyledLinks";
 
 export default function HomePage({ locations }) {
   return (

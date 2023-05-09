@@ -1,4 +1,4 @@
-import StyledAddButton from "@/components/StyledAddLink";
+import StyledAddButton from "@/components/StyledLinks";
 import ToDoList from "@/components/ToDoList";
 
 export default function ToDoListPage({ todos, setTodos }) {

@@ -1,9 +1,9 @@
 import Card from "@/components/Card";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import StyledAddLink from "@/components/StyledAddLink";
+import StyledAddLink from "@/components/StyledLinks";
 import { StyledList } from "@/components/StyledList";
-import StyledBackButton from "@/components/StyledBackButton";
+import { StyledBackLink } from "@/components/StyledLinks";
 
 export default function LocationDetailsPage({ locations, colonies }) {
   const router = useRouter();
@@ -31,7 +31,7 @@ export default function LocationDetailsPage({ locations, colonies }) {
 
       <StyledAddLink href={`/locationdetail/addcolony/${id}`} />
 
-      <StyledBackButton onClick={() => router.push("/")} />
+      <StyledBackLink href={"/"} />
     </>
   );
 }
