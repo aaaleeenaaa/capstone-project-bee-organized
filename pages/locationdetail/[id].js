@@ -8,12 +8,11 @@ import { StyledBackLink } from "@/components/StyledLinks";
 export default function LocationDetailsPage({ locations, colonies }) {
   const router = useRouter();
   const { id } = router.query;
-  const locationId = id;
 
   const currentLocation = locations.find((location) => location.id === id);
 
   const filteredColonies = colonies.filter(
-    (colony) => colony.locationId === locationId
+    (colony) => colony.locationId === id
   );
 
   return (
