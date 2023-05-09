@@ -9,13 +9,13 @@ export default function ColonyDetailsPage({ colonies }) {
 
   const currentColony = colonies.find((colony) => colony.id === id);
 
-  console.log("currentColony", currentColony);
+  console.log("currentColony", currentColony.locationId);
 
   return (
     <>
       <Card text={currentColony?.colonyName} />
       <ColonyQuestions />
-      <StyledBackLink href={`/locationdetail/${currentColony.locationId}`} />
+      <StyledBackLink href={`/locationdetail/${currentColony?.locationId}`} />
     </>
   );
 }
