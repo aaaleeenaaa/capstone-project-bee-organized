@@ -9,6 +9,8 @@ export default function ColonyDetailsPage({ colonies }) {
 
   const currentColony = colonies.find((colony) => colony.id === id);
 
+  console.log("currentColony", currentColony);
+
   return (
     <>
       <Card text={currentColony?.colonyName} />
