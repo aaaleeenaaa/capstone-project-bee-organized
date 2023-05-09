@@ -10,7 +10,7 @@ export default function LocationDetailsPage({ locations, colonies }) {
   const { id } = router.query;
   const locationId = id;
 
-  const result = locations.find((location) => location.id === id);
+  const currentLocation = locations.find((location) => location.id === id);
 
   const filteredColonies = colonies.filter(
     (colony) => colony.locationId === locationId
@@ -18,7 +18,7 @@ export default function LocationDetailsPage({ locations, colonies }) {
 
   return (
     <>
-      <Card text={result?.locationName} />
+      <Card text={currentLocation?.locationName} />
       <StyledList>
         {filteredColonies.map((colony) => {
           return (

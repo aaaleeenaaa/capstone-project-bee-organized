@@ -28,14 +28,11 @@ const Navbar = styled.nav`
 const NavSection = styled.section`
   background-color: ${(props) => (props.isActive ? "#8aa838" : "transparent")};
 `;
-
 export default function NavBar() {
   const [activeItem, setActiveItem] = useState("home");
-
   function handleClick(item) {
     setActiveItem(item);
   }
-
   return (
     <Navbar>
       <Link href="/">

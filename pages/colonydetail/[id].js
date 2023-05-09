@@ -7,11 +7,11 @@ export default function ColonyDetailsPage({ colonies }) {
   const router = useRouter();
   const id = router.query.id;
 
-  const result = colonies.find((colony) => colony.id === id);
+  const currentColony = colonies.find((colony) => colony.id === id);
 
   return (
     <>
-      <Card text={result?.colonyName} />
+      <Card text={currentColony?.colonyName} />
       <ColonyQuestions />
       <StyledBackButton onClick={() => router.back()} />
     </>
