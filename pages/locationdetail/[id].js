@@ -17,8 +17,8 @@ export default function LocationDetailsPage({ locations, colonies }) {
 
   return (
     <>
-      <Card text={currentLocation?.locationName} />
       <StyledList>
+        <Card text={currentLocation?.locationName} isBold={true} />
         {filteredColonies.map((colony) => {
           return (
             <Link href={`/colonydetail/${colony.id}`} key={colony.id}>

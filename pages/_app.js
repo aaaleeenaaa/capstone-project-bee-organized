@@ -1,12 +1,18 @@
 import GlobalStyle from "../styles";
 import Layout from "../components/Layout.js";
 import { nanoid } from "nanoid";
-import { useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
-  const [locations, setLocations] = useState([]);
-  const [colonies, setColonies] = useState([]);
-  const [todos, setTodos] = useState([]);
+  const [locations, setLocations] = useLocalStorageState("locations", {
+    defaultValue: [],
+  });
+
+  const [colonies, setColonies] = useLocalStorageState("colonies", {
+    defaultValue: [],
+  });
+
+  const [todos, setTodos] = useLocalStorageState("todos", { defaultValue: [] });
 
   function handleAddLocation(newLocation) {
     setLocations([...locations, { ...newLocation, id: nanoid() }]);
