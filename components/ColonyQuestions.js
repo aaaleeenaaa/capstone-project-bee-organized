@@ -17,7 +17,6 @@ const StyledQuestionLabel = styled.label`
 `;
 
 export default function ColonyQuestions({ currentColony }) {
-  console.log("Current Colony", currentColony);
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
