@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FormContainer } from "./Form";
-import { useState, useEffect } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 const StyledQuestionCard = styled.section`
   display: flex;
@@ -17,28 +17,15 @@ const StyledQuestionLabel = styled.label`
 `;
 
 export default function ColonyQuestions({ currentColony }) {
-  const [formData, setFormData] = useState({});
-
-  useEffect(() => {
-    const storedFormData = localStorage.getItem(
-      `colonyFormData_${currentColony.id}`
-    );
-    if (storedFormData) {
-      setFormData(JSON.parse(storedFormData));
-    }
-  }, [currentColony]);
+  const [formData, setFormData] = useLocalStorageState(
+    `formData_${currentColony?.id}`,
+    { defaultValue: [] }
+  );
 
   function handleInputChange(event) {
     const { name, value, type, checked } = event.target;
     const newValue = type === "checkbox" ? checked : value;
-    setFormData((prevFormData) => {
-      const newFormData = { ...prevFormData, [name]: newValue };
-      localStorage.setItem(
-        `colonyFormData_${currentColony.id}`,
-        JSON.stringify(newFormData)
-      );
-      return newFormData;
-    });
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: newValue }));
   }
 
   return (

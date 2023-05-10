@@ -7,9 +7,10 @@ export const CardElement = styled.article`
   border: 3px grey solid;
   border-radius: 10px;
   width: 18rem;
-  p {
-    font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
-  }
+`;
+
+const Text = styled.p`
+  font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
 `;
 
 export const StyledListElement = styled.li`
@@ -19,8 +20,8 @@ export const StyledListElement = styled.li`
 export default function Card({ text, isBold }) {
   return (
     <StyledListElement>
-      <CardElement isBold={isBold}>
-        <p>{text}</p>
+      <CardElement>
+        <Text isBold={isBold}>{text}</Text>
       </CardElement>
     </StyledListElement>
   );
