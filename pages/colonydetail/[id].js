@@ -1,19 +1,19 @@
 import { useRouter } from "next/router";
-import ColonyCard from "@/components/ColonyCard";
+import Card from "@/components/Card";
 import ColonyQuestions from "@/components/ColonyQuestions";
-import { StyledLink } from "../locationdetail/[id]";
+import { StyledBackLink } from "@/components/StyledLinks";
 
 export default function ColonyDetailsPage({ colonies }) {
   const router = useRouter();
   const id = router.query.id;
 
-  const result = colonies.find((colony) => colony.id === id);
+  const currentColony = colonies.find((colony) => colony.id === id);
 
   return (
     <>
-      <ColonyCard colony={result} />
+      <Card text={currentColony?.colonyName} />
       <ColonyQuestions />
-      <StyledLink href={`/locationdetail/${id}`}>←</StyledLink>
+      <StyledBackLink href={`/locationdetail/${currentColony?.locationId}`} />
     </>
   );
 }

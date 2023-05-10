@@ -1,28 +1,36 @@
-import LocationCard from "@/components/LocationCard";
+import Card from "@/components/Card";
 import { useRouter } from "next/router";
-import ColonyList from "@/components/ColonyList";
-import StyledAddButton from "@/components/StyledAddButton";
 import Link from "next/link";
-import styled from "styled-components";
-
-export const StyledLink = styled(Link)`
-  position: fixed;
-  bottom: 100px;
-  left: 10px;
-`;
+import StyledAddLink from "@/components/StyledLinks";
+import { StyledList } from "@/components/StyledList";
+import { StyledBackLink } from "@/components/StyledLinks";
 
 export default function LocationDetailsPage({ locations, colonies }) {
   const router = useRouter();
-  const id = router.query.id;
+  const { id } = router.query;
 
-  const result = locations.find((location) => location.id === id);
+  const currentLocation = locations.find((location) => location.id === id);
+
+  const filteredColonies = colonies.filter(
+    (colony) => colony.locationId === id
+  );
 
   return (
     <>
-      <LocationCard location={result} />
-      <ColonyList colonies={colonies} />
-      <StyledLink href="/">←</StyledLink>
-      <StyledAddButton href={"/addcolony"} />
+      <Card text={currentLocation?.locationName} />
+      <StyledList>
+        {filteredColonies.map((colony) => {
+          return (
+            <Link href={`/colonydetail/${colony.id}`} key={colony.id}>
+              <Card text={colony?.colonyName} />
+            </Link>
+          );
+        })}
+      </StyledList>
+
+      <StyledAddLink href={`/locationdetail/addcolony/${id}`} />
+
+      <StyledBackLink href={"/"} />
     </>
   );
 }

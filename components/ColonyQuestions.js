@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FormContainer } from "./LocationForm";
+import { FormContainer } from "./Form";
 
 const StyledQuestionCard = styled.section`
   display: flex;
@@ -71,7 +71,7 @@ export default function ColonyQuestions() {
       </StyledQuestionCard>
 
       <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="question1">
+        <StyledQuestionLabel htmlFor="question4">
           Question 4: Lorem ipsum dolor sit amet?
         </StyledQuestionLabel>
         <input
@@ -84,7 +84,7 @@ export default function ColonyQuestions() {
       </StyledQuestionCard>
 
       <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="question2">
+        <StyledQuestionLabel htmlFor="question5">
           Question 5: Lorem ipsum?
         </StyledQuestionLabel>
         <div>

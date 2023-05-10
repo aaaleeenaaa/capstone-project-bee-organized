@@ -1,12 +1,12 @@
 import LocationList from "@/components/LocationList";
-import StyledAddButton from "@/components/StyledAddButton";
+import StyledAddLink from "@/components/StyledLinks";
 
 export default function HomePage({ locations }) {
   return (
     <>
       <LocationList locations={locations} />
 
-      <StyledAddButton href={"/addlocation"} />
+      <StyledAddLink href={"/addlocation"} />
     </>
   );
 }

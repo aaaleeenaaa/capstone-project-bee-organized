@@ -21,20 +21,17 @@ const Navbar = styled.nav`
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  opacity: 75%;
+  height: 3.5rem;
 `;
 
 const NavSection = styled.section`
   background-color: ${(props) => (props.isActive ? "#8aa838" : "transparent")};
 `;
-
 export default function NavBar() {
   const [activeItem, setActiveItem] = useState("home");
-
   function handleClick(item) {
     setActiveItem(item);
   }
-
   return (
     <Navbar>
       <Link href="/">

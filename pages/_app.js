@@ -1,7 +1,7 @@
 import GlobalStyle from "../styles";
 import Layout from "../components/Layout.js";
-import { useState } from "react";
 import { nanoid } from "nanoid";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
   const [locations, setLocations] = useState([]);
@@ -12,8 +12,11 @@ export default function App({ Component, pageProps }) {
     setLocations([...locations, { ...newLocation, id: nanoid() }]);
   }
 
-  function handleAddColony(newColony) {
-    setColonies([...colonies, { ...newColony, id: nanoid() }]);
+  function handleAddColony(newColony, locationId) {
+    setColonies([
+      ...colonies,
+      { ...newColony, id: nanoid(), locationId: locationId },
+    ]);
   }
 
   function handleAddTodo(newTodo) {
