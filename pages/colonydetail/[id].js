@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Card from "@/components/Card";
 import ColonyQuestions from "@/components/ColonyQuestions";
 import { StyledBackLink } from "@/components/StyledLinks";
-import { StyledList } from "@/components/StyledList";
+import { StyledSection } from "../locationdetail/[id]";
 
 export default function ColonyDetailsPage({ colonies }) {
   const router = useRouter();
@@ -12,10 +12,10 @@ export default function ColonyDetailsPage({ colonies }) {
 
   return (
     <>
-      <StyledList>
+      <StyledSection>
         <Card text={currentColony?.colonyName} isBold={true} />
         <ColonyQuestions currentColony={currentColony} />
-      </StyledList>
+      </StyledSection>
       <StyledBackLink href={`/locationdetail/${currentColony?.locationId}`} />
     </>
   );

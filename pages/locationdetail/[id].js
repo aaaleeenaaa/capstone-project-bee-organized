@@ -2,8 +2,14 @@ import Card from "@/components/Card";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import StyledAddLink from "@/components/StyledLinks";
-import { StyledList } from "@/components/StyledList";
 import { StyledBackLink } from "@/components/StyledLinks";
+import styled from "styled-components";
+
+export const StyledSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export default function LocationDetailsPage({ locations, colonies }) {
   const router = useRouter();
@@ -17,7 +23,7 @@ export default function LocationDetailsPage({ locations, colonies }) {
 
   return (
     <>
-      <StyledList>
+      <StyledSection>
         <Card text={currentLocation?.locationName} isBold={true} />
         {filteredColonies.map((colony) => {
           return (
@@ -26,8 +32,7 @@ export default function LocationDetailsPage({ locations, colonies }) {
             </Link>
           );
         })}
-      </StyledList>
-
+      </StyledSection>
       <StyledAddLink href={`/locationdetail/addcolony/${id}`} />
 
       <StyledBackLink href={"/"} />
