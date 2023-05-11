@@ -10,11 +10,6 @@ const StyledOverviewCard = styled.section`
   padding: 1rem;
   margin-bottom: 1rem;
   width: 18rem;
-
-  & > div {
-    display: flex;
-    flex-direction: row;
-  }
 `;
 
 const StyledOverviewColony = styled.article`
