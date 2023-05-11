@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
-import Card from "@/components/Card";
 import ColonyQuestions from "@/components/ColonyQuestions";
 import { StyledBackLink } from "@/components/StyledLinks";
-import { StyledSection } from "../locationdetail/[id]";
+import { StyledSection } from "@/components/StyledSection";
 
 export default function ColonyDetailsPage({ colonies }) {
   const router = useRouter();
