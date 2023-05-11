@@ -13,7 +13,7 @@ export default function ColonyDetailsPage({ colonies }) {
   return (
     <>
       <StyledSection>
-        <Card text={currentColony?.colonyName} isBold={true} />
+        <h2>{currentColony?.colonyName}</h2>
         <ColonyQuestions currentColony={currentColony} />
       </StyledSection>
       <StyledBackLink href={`/locationdetail/${currentColony?.locationId}`} />

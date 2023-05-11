@@ -1,7 +1,7 @@
 import Card from "./Card";
 import styled from "styled-components";
 import Link from "next/link";
-import { StyledList } from "./StyledList";
+import { StyledSection } from "@/pages/locationdetail/[id]";
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
@@ -9,7 +9,7 @@ export const StyledLink = styled(Link)`
 
 export default function LocationList({ locations }) {
   return (
-    <StyledList>
+    <StyledSection>
       {locations.map((location) => {
         return (
           <StyledLink href={`/locationdetail/${location.id}`} key={location.id}>
@@ -17,6 +17,6 @@ export default function LocationList({ locations }) {
           </StyledLink>
         );
       })}
-    </StyledList>
+    </StyledSection>
   );
 }

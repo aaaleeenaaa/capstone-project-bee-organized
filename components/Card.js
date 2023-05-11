@@ -9,19 +9,15 @@ export const CardElement = styled.article`
   width: 18rem;
 `;
 
-const Text = styled.p`
-  font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
-`;
-
 export const StyledListElement = styled.li`
   list-style-type: none;
 `;
 
-export default function Card({ text, isBold }) {
+export default function Card({ text }) {
   return (
     <StyledListElement>
       <CardElement>
-        <Text isBold={isBold}>{text}</Text>
+        <p>{text}</p>
       </CardElement>
     </StyledListElement>
   );
