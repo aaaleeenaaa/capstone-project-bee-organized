@@ -9,16 +9,10 @@ export const CardElement = styled.article`
   width: 18rem;
 `;
 
-export const StyledListElement = styled.li`
-  list-style-type: none;
-`;
-
 export default function Card({ text }) {
   return (
-    <StyledListElement>
-      <CardElement>
-        <p>{text}</p>
-      </CardElement>
-    </StyledListElement>
+    <CardElement>
+      <p>{text}</p>
+    </CardElement>
   );
 }
