@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FormContainer } from "./Form";
+import useLocalStorageState from "use-local-storage-state";
 
 const StyledQuestionCard = styled.section`
   display: flex;
@@ -15,7 +16,18 @@ const StyledQuestionLabel = styled.label`
   text-align: center;
 `;
 
-export default function ColonyQuestions() {
+export default function ColonyQuestions({ currentColony }) {
+  const [formData, setFormData] = useLocalStorageState(
+    `formData_${currentColony?.id}`,
+    { defaultValue: [] }
+  );
+
+  function handleInputChange(event) {
+    const { name, value, type, checked } = event.target;
+    const newValue = type === "checkbox" ? checked : value;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: newValue }));
+  }
+
   return (
     <FormContainer>
       <StyledQuestionCard>
@@ -28,6 +40,8 @@ export default function ColonyQuestions() {
           type="text"
           maxLength="30"
           minLength="3"
+          value={formData.question1 || ""}
+          onChange={handleInputChange}
         />
       </StyledQuestionCard>
 
@@ -41,6 +55,8 @@ export default function ColonyQuestions() {
             id="question2answer1"
             name="question2answer1"
             type="checkbox"
+            checked={formData.question2answer1 || false}
+            onChange={handleInputChange}
           />
         </div>
         <div>
@@ -49,6 +65,8 @@ export default function ColonyQuestions() {
             id="question2answer2"
             name="question2answer2"
             type="checkbox"
+            checked={formData.question2answer2 || false}
+            onChange={handleInputChange}
           />
         </div>
         <div>
@@ -57,6 +75,8 @@ export default function ColonyQuestions() {
             id="question2answer3"
             name="question2answer3"
             type="checkbox"
+            checked={formData.question2answer3 || false}
+            onChange={handleInputChange}
           />
         </div>
       </StyledQuestionCard>
@@ -67,7 +87,13 @@ export default function ColonyQuestions() {
           sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
           aliquyam?
         </StyledQuestionLabel>
-        <input id="question3" name="question3" type="range" />
+        <input
+          id="question3"
+          name="question3"
+          type="range"
+          value={formData.question3 || ""}
+          onChange={handleInputChange}
+        />
       </StyledQuestionCard>
 
       <StyledQuestionCard>
@@ -80,6 +106,8 @@ export default function ColonyQuestions() {
           type="textarea"
           maxLength="30"
           minLength="3"
+          value={formData.question4 || ""}
+          onChange={handleInputChange}
         />
       </StyledQuestionCard>
 
@@ -93,6 +121,8 @@ export default function ColonyQuestions() {
             id="question5answer1"
             name="question5answer1"
             type="checkbox"
+            checked={formData.question5answer1 || false}
+            onChange={handleInputChange}
           />
         </div>
         <div>
@@ -101,6 +131,8 @@ export default function ColonyQuestions() {
             id="question5answer2"
             name="question5answer2"
             type="checkbox"
+            checked={formData.question5answer2 || false}
+            onChange={handleInputChange}
           />
         </div>
         <div>
@@ -109,6 +141,8 @@ export default function ColonyQuestions() {
             id="question5answer3"
             name="question5answer3"
             type="checkbox"
+            checked={formData.question5answer3 || false}
+            onChange={handleInputChange}
           />
         </div>
       </StyledQuestionCard>

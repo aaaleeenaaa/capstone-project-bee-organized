@@ -6,18 +6,13 @@ export const CardElement = styled.article`
   text-align: center;
   border: 3px grey solid;
   border-radius: 10px;
-`;
-
-export const StyledListElement = styled.li`
-  list-style-type: none;
+  width: 18rem;
 `;
 
 export default function Card({ text }) {
   return (
-    <StyledListElement>
-      <CardElement>
-        <p>{text}</p>
-      </CardElement>
-    </StyledListElement>
+    <CardElement>
+      <p>{text}</p>
+    </CardElement>
   );
 }
