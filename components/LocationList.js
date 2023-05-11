@@ -1,7 +1,7 @@
 import Card from "./Card";
 import styled from "styled-components";
 import Link from "next/link";
-import { StyledSection } from "@/pages/locationdetail/[id]";
+import { StyledSection } from "./StyledSection";
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
