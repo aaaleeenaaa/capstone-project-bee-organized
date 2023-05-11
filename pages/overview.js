@@ -1,6 +1,6 @@
-import { StyledSection } from "./locationdetail/[id]";
 import { StyledLink } from "@/components/LocationList";
 import styled from "styled-components";
+import { StyledSection } from "@/components/StyledSection";
 
 const StyledOverviewCard = styled.section`
   display: flex;
@@ -31,35 +31,30 @@ const StyledOverviewLocation = styled.p`
 
 export default function OverviewPage({ locations, colonies }) {
   return (
-    <>
-      <StyledSection>
-        {locations.map((location) => {
-          const filteredColonies = colonies.filter(
-            (colony) => colony.locationId === location.id
-          );
-          return (
-            <StyledOverviewCard key={location.id}>
-              <StyledLink href={`/locationdetail/${location.id}`}>
-                <StyledOverviewLocation>
-                  {location.locationName}
-                </StyledOverviewLocation>
-              </StyledLink>
-              <StyledColonySection>
-                {filteredColonies.map((colony) => (
-                  <StyledLink
-                    href={`/colonydetail/${colony.id}`}
-                    key={colony.id}
-                  >
-                    <StyledOverviewColony>
-                      {colony.colonyName}
-                    </StyledOverviewColony>
-                  </StyledLink>
-                ))}
-              </StyledColonySection>
-            </StyledOverviewCard>
-          );
-        })}
-      </StyledSection>
-    </>
+    <StyledSection>
+      {locations.map((location) => {
+        const filteredColonies = colonies.filter(
+          (colony) => colony.locationId === location.id
+        );
+        return (
+          <StyledOverviewCard key={location.id}>
+            <StyledLink href={`/locationdetail/${location.id}`}>
+              <StyledOverviewLocation>
+                {location.locationName}
+              </StyledOverviewLocation>
+            </StyledLink>
+            <StyledColonySection>
+              {filteredColonies.map((colony) => (
+                <StyledLink href={`/colonydetail/${colony.id}`} key={colony.id}>
+                  <StyledOverviewColony>
+                    {colony.colonyName}
+                  </StyledOverviewColony>
+                </StyledLink>
+              ))}
+            </StyledColonySection>
+          </StyledOverviewCard>
+        );
+      })}
+    </StyledSection>
   );
 }

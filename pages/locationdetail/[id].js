@@ -3,13 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import StyledAddLink from "@/components/StyledLinks";
 import { StyledBackLink } from "@/components/StyledLinks";
-import styled from "styled-components";
-
-export const StyledSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import { StyledSection } from "@/components/StyledSection";
 
 export default function LocationDetailsPage({ locations, colonies }) {
   const router = useRouter();
