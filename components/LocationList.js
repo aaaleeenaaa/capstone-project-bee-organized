@@ -5,16 +5,14 @@ import useLocalStorageState from "use-local-storage-state";
 import { FormContainer, Label, Input } from "./StyledFormElements";
 import { StyledEditModal } from "./StyledEditModal";
 import { StyledLink } from "./StyledLinks";
+import { useState } from "react";
 
 export default function LocationList({ locations, setLocations }) {
   const [showModal, setShowModal] = useLocalStorageState("showModal", {
     defaultValue: false,
   });
 
-  const [editingLocation, setEditingLocation] = useLocalStorageState(
-    "editingLocation",
-    { defaultValue: null }
-  );
+  const [editingLocation, setEditingLocation] = useState(null);
 
   function handleEditClick(location) {
     setEditingLocation(location);
@@ -24,15 +22,13 @@ export default function LocationList({ locations, setLocations }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const updatedLocations = [...locations];
-
-    const index = updatedLocations.findIndex(
-      (location) => location.id === editingLocation.id
+    setLocations(
+      locations.map((location) => {
+        return location.id === editingLocation.id
+          ? { ...location, locationName: event.target.locationName.value }
+          : location;
+      })
     );
-
-    updatedLocations[index].locationName = event.target.locationName.value;
-
-    setLocations(updatedLocations);
 
     setShowModal(false);
   }
@@ -63,9 +59,19 @@ export default function LocationList({ locations, setLocations }) {
             />
           </Label>
           <button type="submit">Save</button>
-          <button onClick={() => setShowModal(false)}>Cancel</button>
+          <button onClick={() => setShowModal(false)} type="button">
+            Cancel
+          </button>
         </FormContainer>
       </StyledEditModal>
     </StyledSection>
   );
 }
+
+// setLocations(
+//   locations.map((location) => {
+//     return location.id === editingLocation.id
+//       ? { ...location, locationName: event.target.locationName.value }
+//       : location;
+//   })
+// );

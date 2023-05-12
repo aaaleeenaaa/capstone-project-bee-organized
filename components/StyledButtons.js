@@ -18,7 +18,7 @@ export default function StyledSubmitButton() {
 
 export function StyledEditButton({ onClick }) {
   return (
-    <EditButton onClick={onClick} aria-label="edit">
+    <EditButton onClick={onClick} aria-label="edit" type="button">
       <FaRegEdit />
     </EditButton>
   );

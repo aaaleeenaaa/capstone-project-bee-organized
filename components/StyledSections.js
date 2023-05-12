@@ -8,6 +8,5 @@ export const StyledSection = styled.section`
 
 export const StyledRowSection = styled.section`
   display: flex;
-  flex-direction: row;
   align-items: center;
 `;

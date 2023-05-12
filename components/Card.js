@@ -11,10 +11,8 @@ export const CardElement = styled.article`
 
 export default function Card({ text }) {
   return (
-    <>
-      <CardElement>
-        <p>{text}</p>
-      </CardElement>
-    </>
+    <CardElement>
+      <p>{text}</p>
+    </CardElement>
   );
 }

@@ -8,6 +8,7 @@ import { StyledEditButton } from "@/components/StyledButtons";
 import useLocalStorageState from "use-local-storage-state";
 import { FormContainer, Label, Input } from "@/components/StyledFormElements";
 import { StyledEditModal } from "@/components/StyledEditModal";
+import { useState } from "react";
 
 export default function LocationDetailsPage({
   locations,
@@ -27,10 +28,7 @@ export default function LocationDetailsPage({
     defaultValue: false,
   });
 
-  const [editingColony, setEditingColony] = useLocalStorageState(
-    "editingColony",
-    { defaultValue: null }
-  );
+  const [editingColony, setEditingColony] = useState(null);
 
   function handleEditClick(colony) {
     setEditingColony(colony);
@@ -40,15 +38,13 @@ export default function LocationDetailsPage({
   function handleSubmit(event) {
     event.preventDefault();
 
-    const updatedColonies = [...colonies];
-
-    const index = updatedColonies.findIndex(
-      (colony) => colony.id === editingColony.id
+    setColonies(
+      colonies.map((colony) => {
+        return colony.id === editingColony.id
+          ? { ...colony, colonyName: event.target.colonyName.value }
+          : colony;
+      })
     );
-
-    updatedColonies[index].colonyName = event.target.colonyName.value;
-
-    setColonies(updatedColonies);
 
     setShowModal(false);
   }
@@ -82,7 +78,9 @@ export default function LocationDetailsPage({
               />
             </Label>
             <button type="submit">Save</button>
-            <button onClick={() => setShowModal(false)}>Cancel</button>
+            <button onClick={() => setShowModal(false)} type="button">
+              Cancel
+            </button>
           </FormContainer>
         </StyledEditModal>
       </StyledSection>
