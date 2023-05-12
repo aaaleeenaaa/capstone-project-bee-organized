@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import ColonyQuestions from "@/components/ColonyQuestions";
 import { StyledBackLink } from "@/components/StyledLinks";
-import { StyledSection } from "@/components/StyledSection";
+import { StyledSection } from "@/components/StyledSections";
 
 export default function ColonyDetailsPage({ colonies }) {
   const router = useRouter();

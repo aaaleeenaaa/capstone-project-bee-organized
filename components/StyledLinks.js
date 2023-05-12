@@ -20,6 +20,10 @@ const BackLink = styled(Link)`
   left: 10px;
 `;
 
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 export default function StyledAddLink({ href }) {
   return (
     <AddLink href={href} aria-label="add to list">

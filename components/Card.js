@@ -7,12 +7,17 @@ export const CardElement = styled.article`
   border: 3px grey solid;
   border-radius: 10px;
   width: 18rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default function Card({ text }) {
   return (
-    <CardElement>
-      <p>{text}</p>
-    </CardElement>
+    <>
+      <CardElement>
+        <p>{text}</p>
+      </CardElement>
+    </>
   );
 }

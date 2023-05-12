@@ -42,6 +42,8 @@ export default function App({ Component, pageProps }) {
           onAddTodo={handleAddTodo}
           todos={todos}
           setTodos={setTodos}
+          setLocations={setLocations}
+          setColonies={setColonies}
         />
       </Layout>
     </>

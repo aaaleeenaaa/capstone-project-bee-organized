@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FormContainer } from "./Form";
+import { FormContainer } from "./StyledFormElements";
 import useLocalStorageState from "use-local-storage-state";
 
 const StyledQuestionCard = styled.section`
