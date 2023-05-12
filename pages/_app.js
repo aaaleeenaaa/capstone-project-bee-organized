@@ -2,6 +2,9 @@ import GlobalStyle from "../styles";
 import Layout from "../components/Layout.js";
 import { nanoid } from "nanoid";
 import useLocalStorageState from "use-local-storage-state";
+import Modal from "react-modal";
+
+Modal.setAppElement("#__next");
 
 export default function App({ Component, pageProps }) {
   const [locations, setLocations] = useLocalStorageState("locations", {

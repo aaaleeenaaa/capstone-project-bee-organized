@@ -67,11 +67,3 @@ export default function LocationList({ locations, setLocations }) {
     </StyledSection>
   );
 }
-
-// setLocations(
-//   locations.map((location) => {
-//     return location.id === editingLocation.id
-//       ? { ...location, locationName: event.target.locationName.value }
-//       : location;
-//   })
-// );
