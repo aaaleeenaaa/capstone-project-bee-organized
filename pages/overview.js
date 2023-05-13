@@ -1,6 +1,6 @@
-import { StyledLink } from "@/components/LocationList";
+import { StyledLink } from "@/components/StyledLinks";
 import styled from "styled-components";
-import { StyledSection } from "@/components/StyledSection";
+import { StyledSection } from "@/components/StyledSections";
 
 const StyledOverviewCard = styled.section`
   display: flex;

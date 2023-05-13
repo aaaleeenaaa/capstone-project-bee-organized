@@ -5,3 +5,8 @@ export const StyledSection = styled.section`
   flex-direction: column;
   align-items: center;
 `;
+
+export const StyledRowSection = styled.section`
+  display: flex;
+  align-items: center;
+`;
