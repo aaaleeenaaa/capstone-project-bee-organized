@@ -63,7 +63,7 @@ export default function LocationDetailsPage({
           return (
             <StyledRowSection key={colony.id}>
               <Link href={`/colonydetail/${colony.id}`}>
-                <Card text={colony?.colonyName} />{" "}
+                <Card text={colony?.colonyName} />
               </Link>
               <StyledEditDeleteButton
                 onClick={() => handleEditClick(colony)}
