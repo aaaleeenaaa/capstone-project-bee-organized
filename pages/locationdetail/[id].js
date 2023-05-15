@@ -4,11 +4,13 @@ import Link from "next/link";
 import StyledAddLink, { StyledBackLink } from "@/components/StyledLinks";
 import { StyledSection } from "@/components/StyledSections";
 import { StyledRowSection } from "@/components/StyledSections";
-import { StyledEditButton } from "@/components/StyledButtons";
 import useLocalStorageState from "use-local-storage-state";
 import { FormContainer, Label, Input } from "@/components/StyledFormElements";
 import { StyledEditModal } from "@/components/StyledEditModal";
 import { useState } from "react";
+import { StyledEditDeleteButton } from "@/components/StyledButtons";
+import { FaRegEdit } from "react-icons/fa";
+import { TiDelete } from "react-icons/ti";
 
 export default function LocationDetailsPage({
   locations,
@@ -49,6 +51,10 @@ export default function LocationDetailsPage({
     setShowModal(false);
   }
 
+  function handleDeleteClick(colonyToDelete) {
+    setColonies(colonies.filter((colony) => colony.id !== colonyToDelete.id));
+  }
+
   return (
     <>
       <StyledSection>
@@ -59,7 +65,17 @@ export default function LocationDetailsPage({
               <Link href={`/colonydetail/${colony.id}`}>
                 <Card text={colony?.colonyName} />
               </Link>
-              <StyledEditButton onClick={() => handleEditClick(colony)} />
+              <StyledEditDeleteButton
+                onClick={() => handleEditClick(colony)}
+                icon={FaRegEdit}
+                ariaLabel={"edit"}
+              />
+              <StyledEditDeleteButton
+                onClick={() => handleDeleteClick(colony)}
+                icon={TiDelete}
+                ariaLabel={"delete"}
+                padding="0.2rem 0.5rem 0 0.3rem"
+              />
             </StyledRowSection>
           );
         })}
