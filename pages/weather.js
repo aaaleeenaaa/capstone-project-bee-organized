@@ -95,7 +95,7 @@ export default function WeatherPage() {
             Today, {todayWeekday}, {data.forecast.forecastday[0].date}
           </h5>
           <Image
-            src={`https://${data.forecast.forecastday[0].day.condition.icon}`}
+            src={`https:${data.forecast.forecastday[0].day.condition.icon}`}
             alt="weather icon"
             width={64}
             height={64}
