@@ -31,24 +31,22 @@ export default function ToDoList({ todos, setTodos }) {
     <StyledList>
       {todos.map((todo) => {
         return (
-          <>
-            <StyledTodoListElement key={todo.id} completed={todo.completed}>
-              <label htmlFor="todo">{todo?.todo}</label>
-              <input
-                type="checkbox"
-                checked={todo.completed}
-                onChange={() => handleTodoToggle(todo.id)}
-                id="todo"
-                name="todo"
-              />
-              <StyledEditDeleteButton
-                onClick={() => handleDeleteClick(todo)}
-                icon={TiDelete}
-                ariaLabel={"delete"}
-                padding="0.2rem 0.5rem 0 0.3rem"
-              />
-            </StyledTodoListElement>
-          </>
+          <StyledTodoListElement key={todo.id} completed={todo.completed}>
+            <label htmlFor="todo">{todo?.todo}</label>
+            <input
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => handleTodoToggle(todo.id)}
+              id="todo"
+              name="todo"
+            />
+            <StyledEditDeleteButton
+              onClick={() => handleDeleteClick(todo)}
+              icon={TiDelete}
+              ariaLabel={"delete"}
+              padding="0.2rem 0.5rem 0 0.3rem"
+            />
+          </StyledTodoListElement>
         );
       })}
     </StyledList>
