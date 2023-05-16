@@ -37,6 +37,11 @@ export default function LocationDetailsPage({
 
   const [editingColony, setEditingColony] = useState(null);
 
+  const [formData, setFormData] = useLocalStorageState(
+    `formData_${currentLocation?.id}`,
+    { defaultValue: [] }
+  );
+
   function handleEditClick(colony) {
     setEditingColony(colony);
     setShowModal(true);
@@ -59,11 +64,6 @@ export default function LocationDetailsPage({
   function handleDeleteClick(colonyToDelete) {
     setColonies(colonies.filter((colony) => colony.id !== colonyToDelete.id));
   }
-
-  const [formData, setFormData] = useLocalStorageState(
-    `formData_${currentLocation?.id}`,
-    { defaultValue: [] }
-  );
 
   function handleInputChange(event) {
     const { name, value, type, checked } = event.target;
