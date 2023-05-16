@@ -11,6 +11,11 @@ import { useState } from "react";
 import { StyledEditDeleteButton } from "@/components/StyledButtons";
 import { FaRegEdit } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
+import {
+  StyledQuestionCard,
+  StyledQuestionLabel,
+  StyledQuestionTextArea,
+} from "@/components/StyledQuestionElements";
 
 export default function LocationDetailsPage({
   locations,
@@ -55,10 +60,38 @@ export default function LocationDetailsPage({
     setColonies(colonies.filter((colony) => colony.id !== colonyToDelete.id));
   }
 
+  const [formData, setFormData] = useLocalStorageState(
+    `formData_${currentLocation?.id}`,
+    { defaultValue: [] }
+  );
+
+  function handleInputChange(event) {
+    const { name, value, type, checked } = event.target;
+    const newValue = type === "checkbox" ? checked : value;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: newValue }));
+  }
+
   return (
     <>
       <StyledSection>
         <h2>{currentLocation?.locationName}</h2>
+
+        <StyledQuestionCard padding="0.5rem 0" width="70%" margin="0 0 2rem 0">
+          <StyledQuestionLabel htmlFor="generalNotesLocation">
+            General notes about the location:
+          </StyledQuestionLabel>
+          <StyledQuestionTextArea
+            id="generalNotesLocation"
+            name="generalNotesLocation"
+            type="text"
+            rows="3"
+            maxLength="100"
+            minLength="3"
+            value={formData.generalNotesLocation || ""}
+            onChange={handleInputChange}
+          />
+        </StyledQuestionCard>
+
         {filteredColonies.map((colony) => {
           return (
             <StyledRowSection key={colony.id}>

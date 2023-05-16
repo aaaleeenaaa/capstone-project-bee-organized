@@ -1,20 +1,10 @@
-import styled from "styled-components";
 import { FormContainer } from "./StyledFormElements";
 import useLocalStorageState from "use-local-storage-state";
-
-const StyledQuestionCard = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px grey solid;
-  padding: 1em;
-  width: 90%;
-`;
-
-const StyledQuestionLabel = styled.label`
-  font-style: italic;
-  text-align: center;
-`;
+import {
+  StyledQuestionCard,
+  StyledQuestionLabel,
+  StyledQuestionTextArea,
+} from "./StyledQuestionElements";
 
 export default function ColonyQuestions({ currentColony }) {
   const [formData, setFormData] = useLocalStorageState(
@@ -30,6 +20,22 @@ export default function ColonyQuestions({ currentColony }) {
 
   return (
     <FormContainer>
+      <StyledQuestionCard>
+        <StyledQuestionLabel htmlFor="generalNotesColony">
+          General notes about the colony:
+        </StyledQuestionLabel>
+        <StyledQuestionTextArea
+          id="generalNotesColony"
+          name="generalNotesColony"
+          type="text"
+          rows="3"
+          maxLength="100"
+          minLength="3"
+          value={formData.generalNotesColony || ""}
+          onChange={handleInputChange}
+        />
+      </StyledQuestionCard>
+
       <StyledQuestionCard>
         <StyledQuestionLabel htmlFor="question1">
           Question 1: Lorem ipsum?
