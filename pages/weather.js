@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import useLocalStorageState from "use-local-storage-state";
-import useSWR from "swr";
 import Image from "next/image";
 import { StyledSection, StyledRowSection } from "@/components/StyledSections";
 import { Label, Input } from "@/components/StyledFormElements";
@@ -17,38 +16,37 @@ const StyledWeatherDay = styled.div`
   width: 21rem;
 `;
 
-const fetcher = async (url) => {
-  const res = await fetch(url);
-
-  if (!res.ok) {
-    const error = new Error("An error occurred while fetching the data.");
-    error.info = await res.json();
-    error.status = res.status;
-    throw error;
-  }
-
-  return res.json();
-};
-
 export default function WeatherPage() {
   const [weatherLocation, setWeatherLocation] = useLocalStorageState(
     "weatherLocation",
     { defaultValue: "Hamburg" }
   );
-  const [url, setUrl] = useState(
-    `https://api.weatherapi.com/v1/forecast.json?key=a7f12ff76d6c4b7383f102231231505&q=${weatherLocation}&days=7&aqi=no&alerts=no`
-  );
 
-  const { data, error, isLoading } = useSWR(url, fetcher);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
-    setUrl(
-      `https://api.weatherapi.com/v1/forecast.json?key=a7f12ff76d6c4b7383f102231231505&q=${weatherLocation}&days=7&aqi=no&alerts=no`
-    );
-  }, [weatherLocation]);
+    async function fetchWeatherData() {
+      try {
+        setIsLoading(true);
+        const response = await fetch(
+          `/api/weather?location=${weatherLocation}`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch weather data");
+        }
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+    fetchWeatherData();
+  }, [weatherLocation]);
 
   const currentDate = new Date();
   const tomorrowDate = new Date(currentDate);
@@ -57,18 +55,22 @@ export default function WeatherPage() {
   const todayWeekday = currentDate.toLocaleDateString("en-US", options);
   const tomorrowWeekday = tomorrowDate.toLocaleDateString("en-US", options);
 
-  function handleKeyPress(event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      const newLocation = event.target.value;
-      setWeatherLocation(newLocation);
-    }
-  }
-
   function handleLocationSubmit(event) {
     event.preventDefault();
     const newLocation = event.target.weatherLocation.value;
     setWeatherLocation(newLocation);
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Failed to load weather data</div>;
+  }
+
+  if (!data) {
+    return null;
   }
 
   return (
@@ -81,7 +83,6 @@ export default function WeatherPage() {
           type="text"
           maxLength="30"
           minLength="3"
-          onKeyPress={handleKeyPress}
           required
         />
         <StyledSearchButton />
