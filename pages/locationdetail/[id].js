@@ -66,9 +66,8 @@ export default function LocationDetailsPage({
   }
 
   function handleInputChange(event) {
-    const { name, value, type, checked } = event.target;
-    const newValue = type === "checkbox" ? checked : value;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: newValue }));
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   }
 
   return (
