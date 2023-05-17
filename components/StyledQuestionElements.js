@@ -4,7 +4,7 @@ export const StyledQuestionCard = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px grey solid;
+  border: 1px solid grey;
   padding: ${(props) => props.padding || "1em"};
   width: ${(props) => props.width || "90%"};
   margin: ${(props) => props.margin || "0"};
