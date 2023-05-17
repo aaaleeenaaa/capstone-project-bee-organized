@@ -13,7 +13,7 @@ const fetcher = async (url) => {
 
 export default async function handler(request, response) {
   const { location: weatherLocation } = request.query;
-  const url = `https://api.weatherapi.com/v1/forecast.json?key=01fb669b7f2c4266bb3111415231605&q=${weatherLocation}&days=7&aqi=no&alerts=no`;
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.weather_api_key}&q=${weatherLocation}&days=7&aqi=no&alerts=no`;
 
   try {
     const data = await fetcher(url);
