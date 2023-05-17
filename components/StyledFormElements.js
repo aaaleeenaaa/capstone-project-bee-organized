@@ -18,5 +18,5 @@ export const FormContainer = styled.form`
   align-items: center;
   padding: 1rem;
   flex-grow: 1;
-  margin-bottom: 55px;
+  margin-bottom: ${(props) => props.marginBottom || "3.5rem"};
 `;
