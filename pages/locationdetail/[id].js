@@ -11,6 +11,12 @@ import { useState } from "react";
 import { StyledEditDeleteButton } from "@/components/StyledButtons";
 import { FaRegEdit } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
+import {
+  StyledQuestionCard,
+  StyledQuestionLabel,
+  StyledQuestionTextArea,
+} from "@/components/StyledQuestionElements";
+import GeneralNotes from "@/components/GeneralNotes";
 
 export default function LocationDetailsPage({
   locations,
@@ -59,6 +65,15 @@ export default function LocationDetailsPage({
     <>
       <StyledSection>
         <h2>{currentLocation?.locationName}</h2>
+
+        <GeneralNotes
+          padding="0.5rem 0"
+          width="70%"
+          margin="0 0 2rem 0"
+          isLocation={true}
+          currentLocation={currentLocation}
+        />
+
         {filteredColonies.map((colony) => {
           return (
             <StyledRowSection key={colony.id}>
