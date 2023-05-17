@@ -3,8 +3,8 @@ import useLocalStorageState from "use-local-storage-state";
 import {
   StyledQuestionCard,
   StyledQuestionLabel,
-  StyledQuestionTextArea,
 } from "./StyledQuestionElements";
+import GeneralNotes from "./GeneralNotes";
 
 export default function ColonyQuestions({ currentColony }) {
   const [formData, setFormData] = useLocalStorageState(
@@ -20,21 +20,7 @@ export default function ColonyQuestions({ currentColony }) {
 
   return (
     <FormContainer>
-      <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="generalNotesColony">
-          General notes about the colony:
-        </StyledQuestionLabel>
-        <StyledQuestionTextArea
-          id="generalNotesColony"
-          name="generalNotesColony"
-          type="text"
-          rows="3"
-          maxLength="100"
-          minLength="3"
-          value={formData.generalNotesColony || ""}
-          onChange={handleInputChange}
-        />
-      </StyledQuestionCard>
+      <GeneralNotes currentColony={currentColony} />
 
       <StyledQuestionCard>
         <StyledQuestionLabel htmlFor="question1">

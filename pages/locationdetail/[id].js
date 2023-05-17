@@ -16,6 +16,7 @@ import {
   StyledQuestionLabel,
   StyledQuestionTextArea,
 } from "@/components/StyledQuestionElements";
+import GeneralNotes from "@/components/GeneralNotes";
 
 export default function LocationDetailsPage({
   locations,
@@ -36,11 +37,6 @@ export default function LocationDetailsPage({
   });
 
   const [editingColony, setEditingColony] = useState(null);
-
-  const [formData, setFormData] = useLocalStorageState(
-    `formData_${currentLocation?.id}`,
-    { defaultValue: [] }
-  );
 
   function handleEditClick(colony) {
     setEditingColony(colony);
@@ -65,31 +61,18 @@ export default function LocationDetailsPage({
     setColonies(colonies.filter((colony) => colony.id !== colonyToDelete.id));
   }
 
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  }
-
   return (
     <>
       <StyledSection>
         <h2>{currentLocation?.locationName}</h2>
 
-        <StyledQuestionCard padding="0.5rem 0" width="70%" margin="0 0 2rem 0">
-          <StyledQuestionLabel htmlFor="generalNotesLocation">
-            General notes about the location:
-          </StyledQuestionLabel>
-          <StyledQuestionTextArea
-            id="generalNotesLocation"
-            name="generalNotesLocation"
-            type="text"
-            rows="3"
-            maxLength="100"
-            minLength="3"
-            value={formData.generalNotesLocation || ""}
-            onChange={handleInputChange}
-          />
-        </StyledQuestionCard>
+        <GeneralNotes
+          padding="0.5rem 0"
+          width="70%"
+          margin="0 0 2rem 0"
+          isLocation={true}
+          currentLocation={currentLocation}
+        />
 
         {filteredColonies.map((colony) => {
           return (
