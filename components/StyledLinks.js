@@ -10,8 +10,8 @@ const AddLink = styled(Link)`
   padding: 0.5em 0.8em;
   font-size: 2em;
   text-decoration: none;
-  position: ${(props) => props.position || "fixed"};
-  bottom: ${(props) => props.bottom || "90px"};
+  position: fixed;
+  bottom: 90px;
 `;
 
 const BackLink = styled(Link)`

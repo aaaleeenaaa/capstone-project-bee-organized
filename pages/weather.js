@@ -73,8 +73,6 @@ export default function WeatherPage() {
     return null;
   }
 
-  console.log("Data", data);
-
   return (
     <StyledSection>
       <form onSubmit={handleLocationSubmit}>
