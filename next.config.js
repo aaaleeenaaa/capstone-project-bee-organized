@@ -5,7 +5,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ["cdn.weatherapi.com"],
+    domains: ["cdn.weatherapi.com", "res.cloudinary.com"],
   },
   webpack(config) {
     config.module.rules.push({

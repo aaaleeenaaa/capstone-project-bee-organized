@@ -9,4 +9,5 @@ export const StyledSection = styled.section`
 export const StyledRowSection = styled.section`
   display: flex;
   align-items: center;
+  margin-bottom: ${(props) => props.marginBottom || "0"};
 `;

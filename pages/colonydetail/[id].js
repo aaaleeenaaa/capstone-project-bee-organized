@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import ColonyQuestions from "@/components/ColonyQuestions";
 import { StyledBackLink } from "@/components/StyledLinks";
 import { StyledSection } from "@/components/StyledSections";
+import ImageUpload from "@/components/ImageUpload";
 
 export default function ColonyDetailsPage({ colonies }) {
   const router = useRouter();
@@ -14,6 +15,7 @@ export default function ColonyDetailsPage({ colonies }) {
       <StyledSection>
         <h2>{currentColony?.colonyName}</h2>
         <ColonyQuestions currentColony={currentColony} />
+        <ImageUpload currentColony={currentColony} />
       </StyledSection>
       <StyledBackLink href={`/locationdetail/${currentColony?.locationId}`} />
     </>
