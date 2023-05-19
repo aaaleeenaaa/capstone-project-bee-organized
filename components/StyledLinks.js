@@ -6,12 +6,12 @@ const AddLink = styled(Link)`
   opacity: 65%;
   border: 1px grey solid;
   border-radius: 50%;
+  position: fixed;
+  bottom: 90px;
   right: 10px;
   padding: 0.5em 0.8em;
   font-size: 2em;
   text-decoration: none;
-  position: fixed;
-  bottom: 90px;
 `;
 
 const BackLink = styled(Link)`
