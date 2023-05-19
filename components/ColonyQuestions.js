@@ -12,10 +12,29 @@ export default function ColonyQuestions({ currentColony }) {
     { defaultValue: [] }
   );
 
+  const [nextColonyChecks, setNextColonyChecks] = useLocalStorageState(
+    "nextColonyChecks",
+    { defaultValue: [] }
+  );
+
+  function handleNextColonyCheckUpdate(value) {
+    const updatedChecks = nextColonyChecks.filter(
+      (check) => check.colonyName !== currentColony?.colonyName
+    );
+    updatedChecks.push({
+      date: value,
+      colonyName: currentColony?.colonyName,
+    });
+    setNextColonyChecks(updatedChecks);
+  }
+
   function handleInputChange(event) {
     const { name, value, type, checked } = event.target;
     const newValue = type === "checkbox" ? checked : value;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: newValue }));
+    if (name === "nextColonyCheck") {
+      handleNextColonyCheckUpdate(newValue);
+    }
   }
 
   return (
@@ -137,6 +156,29 @@ export default function ColonyQuestions({ currentColony }) {
             onChange={handleInputChange}
           />
         </div>
+      </StyledQuestionCard>
+
+      <StyledQuestionCard>
+        <StyledQuestionLabel htmlFor="lastColonyCheck">
+          Last check of colony:
+        </StyledQuestionLabel>
+        <input
+          id="lastColonyCheck"
+          name="lastColonyCheck"
+          type="date"
+          value={formData.lastColonyCheck || ""}
+          onChange={handleInputChange}
+        />
+        <StyledQuestionLabel htmlFor="nextColonyCheck">
+          Next colony check due:
+        </StyledQuestionLabel>
+        <input
+          id="nextColonyCheck"
+          name="nextColonyCheck"
+          type="date"
+          value={formData.nextColonyCheck || ""}
+          onChange={handleInputChange}
+        />
       </StyledQuestionCard>
     </FormContainer>
   );
