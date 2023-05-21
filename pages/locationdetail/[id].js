@@ -38,7 +38,7 @@ export default function LocationDetailsPage({
   const [editingColony, setEditingColony] = useState(null);
 
   const [formData, setFormData] = useLocalStorageState(
-    `formData_${currentLocation.id}`,
+    `formData_${currentLocation?.id}`,
     { defaultValue: [] }
   );
 
