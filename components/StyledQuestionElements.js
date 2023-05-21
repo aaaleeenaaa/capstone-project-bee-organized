@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledQuestionCard = styled.section`
+export const StyledCard = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,11 +10,11 @@ export const StyledQuestionCard = styled.section`
   margin: ${(props) => props.margin || "0"};
 `;
 
-export const StyledQuestionLabel = styled.label`
+export const StyledLabel = styled.label`
   font-style: italic;
   text-align: center;
 `;
 
-export const StyledQuestionTextArea = styled.textarea`
+export const StyledTextArea = styled.textarea`
   width: 15rem;
 `;

@@ -1,9 +1,6 @@
 import { FormContainer } from "./StyledFormElements";
 import useLocalStorageState from "use-local-storage-state";
-import {
-  StyledQuestionCard,
-  StyledQuestionLabel,
-} from "./StyledQuestionElements";
+import { StyledCard, StyledLabel } from "./StyledQuestionElements";
 import GeneralNotes from "./GeneralNotes";
 
 export default function ColonyQuestions({ currentColony }) {
@@ -41,10 +38,8 @@ export default function ColonyQuestions({ currentColony }) {
     <FormContainer>
       <GeneralNotes currentColony={currentColony} />
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="question1">
-          1. Stifte?
-        </StyledQuestionLabel>
+      <StyledCard>
+        <StyledLabel htmlFor="question1">1. Stifte?</StyledLabel>
         <div>
           <label htmlFor="question1answer1">Ja</label>
           <input
@@ -65,12 +60,10 @@ export default function ColonyQuestions({ currentColony }) {
             onChange={handleInputChange}
           />
         </div>
-      </StyledQuestionCard>
+      </StyledCard>
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="question2">
-          2. Königin?
-        </StyledQuestionLabel>
+      <StyledCard>
+        <StyledLabel htmlFor="question2">2. Königin?</StyledLabel>
         <div>
           <label htmlFor="question2answer1">Ja</label>
           <input
@@ -91,12 +84,10 @@ export default function ColonyQuestions({ currentColony }) {
             onChange={handleInputChange}
           />
         </div>
-      </StyledQuestionCard>
+      </StyledCard>
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="question3">
-          3. Farbe der Königin?
-        </StyledQuestionLabel>
+      <StyledCard>
+        <StyledLabel htmlFor="question3">3. Farbe der Königin?</StyledLabel>
         <div>
           <label htmlFor="question3answer1">Rot</label>
           <input
@@ -147,12 +138,10 @@ export default function ColonyQuestions({ currentColony }) {
             onChange={handleInputChange}
           />
         </div>
-      </StyledQuestionCard>
+      </StyledCard>
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="question4">
-          4. Bruträhmchen?
-        </StyledQuestionLabel>
+      <StyledCard>
+        <StyledLabel htmlFor="question4">4. Bruträhmchen?</StyledLabel>
         <input
           id="question4answer1"
           name="question4answer1"
@@ -169,12 +158,10 @@ export default function ColonyQuestions({ currentColony }) {
           value={formData.question4answer2 || ""}
           onChange={handleInputChange}
         />
-      </StyledQuestionCard>
+      </StyledCard>
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="question5">
-          5. Drohnenrahmen?
-        </StyledQuestionLabel>
+      <StyledCard>
+        <StyledLabel htmlFor="question5">5. Drohnenrahmen?</StyledLabel>
         <div>
           <label htmlFor="question5answer1">Ja</label>
           <input
@@ -195,12 +182,10 @@ export default function ColonyQuestions({ currentColony }) {
             onChange={handleInputChange}
           />
         </div>
-      </StyledQuestionCard>
+      </StyledCard>
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="question6">
-          6. Weisel?
-        </StyledQuestionLabel>
+      <StyledCard>
+        <StyledLabel htmlFor="question6">6. Weisel?</StyledLabel>
         <input
           id="question6"
           name="question6"
@@ -210,12 +195,10 @@ export default function ColonyQuestions({ currentColony }) {
           value={formData.question6 || ""}
           onChange={handleInputChange}
         />
-      </StyledQuestionCard>
+      </StyledCard>
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="question7">
-          7. Honigräume?
-        </StyledQuestionLabel>
+      <StyledCard>
+        <StyledLabel htmlFor="question7">7. Honigräume?</StyledLabel>
         <div>
           <label htmlFor="question7answer1">1</label>
           <input
@@ -246,10 +229,10 @@ export default function ColonyQuestions({ currentColony }) {
             onChange={handleInputChange}
           />
         </div>
-      </StyledQuestionCard>
+      </StyledCard>
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel>8. Aktueller Honigraum?</StyledQuestionLabel>
+      <StyledCard>
+        <StyledLabel htmlFor="question8">8. Aktueller Honigraum?</StyledLabel>
         <input
           id="question8"
           name="question8"
@@ -257,10 +240,10 @@ export default function ColonyQuestions({ currentColony }) {
           value={formData.question8 || ""}
           onChange={handleInputChange}
         />
-      </StyledQuestionCard>
+      </StyledCard>
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel>9. Ameisensäure?</StyledQuestionLabel>
+      <StyledCard>
+        <StyledLabel htmlFor="question9">9. Ameisensäure?</StyledLabel>
         <input
           id="question9answer1"
           name="question9answer1"
@@ -277,10 +260,10 @@ export default function ColonyQuestions({ currentColony }) {
           value={formData.question9answer2 || ""}
           onChange={handleInputChange}
         />
-      </StyledQuestionCard>
+      </StyledCard>
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel>10. Gefüttert?</StyledQuestionLabel>
+      <StyledCard>
+        <StyledLabel htmlFor="quesion10">10. Gefüttert?</StyledLabel>
         <input
           id="question10answer1"
           name="question10answer1"
@@ -297,12 +280,12 @@ export default function ColonyQuestions({ currentColony }) {
           value={formData.question10answer2 || ""}
           onChange={handleInputChange}
         />
-      </StyledQuestionCard>
+      </StyledCard>
 
-      <StyledQuestionCard>
-        <StyledQuestionLabel htmlFor="lastColonyCheck">
+      <StyledCard>
+        <StyledLabel htmlFor="lastColonyCheck">
           Last check of colony:
-        </StyledQuestionLabel>
+        </StyledLabel>
         <input
           id="lastColonyCheck"
           name="lastColonyCheck"
@@ -310,9 +293,9 @@ export default function ColonyQuestions({ currentColony }) {
           value={formData.lastColonyCheck || ""}
           onChange={handleInputChange}
         />
-        <StyledQuestionLabel htmlFor="nextColonyCheck">
+        <StyledLabel htmlFor="nextColonyCheck">
           Next colony check due:
-        </StyledQuestionLabel>
+        </StyledLabel>
         <input
           id="nextColonyCheck"
           name="nextColonyCheck"
@@ -320,7 +303,7 @@ export default function ColonyQuestions({ currentColony }) {
           value={formData.nextColonyCheck || ""}
           onChange={handleInputChange}
         />
-      </StyledQuestionCard>
+      </StyledCard>
     </FormContainer>
   );
 }

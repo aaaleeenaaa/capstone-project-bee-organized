@@ -1,14 +1,7 @@
-import {
-  StyledQuestionCard,
-  StyledQuestionLabel,
-  StyledQuestionTextArea,
-} from "./StyledQuestionElements";
+import { StyledLabel, StyledTextArea } from "./StyledQuestionElements";
 import useLocalStorageState from "use-local-storage-state";
 
 export default function GeneralNotes({
-  padding,
-  width,
-  margin,
   isLocation,
   currentLocation,
   currentColony,
@@ -26,18 +19,13 @@ export default function GeneralNotes({
   }
 
   return (
-    <StyledQuestionCard
-      padding={padding}
-      width={width}
-      margin={margin}
-      isLocation={isLocation}
-    >
-      <StyledQuestionLabel htmlFor="generalNotes">
+    <>
+      <StyledLabel htmlFor="generalNotes">
         {isLocation
           ? "General notes about the location:"
           : "General notes about the colony:"}
-      </StyledQuestionLabel>
-      <StyledQuestionTextArea
+      </StyledLabel>
+      <StyledTextArea
         id="generalNotes"
         name="generalNotes"
         type="text"
@@ -47,6 +35,6 @@ export default function GeneralNotes({
         value={formData.generalNotes || ""}
         onChange={handleInputChange}
       />
-    </StyledQuestionCard>
+    </>
   );
 }
