@@ -93,7 +93,10 @@ export default function WeatherPage() {
       <StyledWeatherDay>
         <StyledRowSection>
           <h5>
-            Today, {todayWeekday}, {data.forecast.forecastday[0].date}
+            Today, {todayWeekday},{" "}
+            {new Date(data.forecast.forecastday[0].date).toLocaleDateString(
+              "de-DE"
+            )}
           </h5>
           <Image
             src={`https:${data.forecast.forecastday[0].day.condition.icon}`}
@@ -116,7 +119,10 @@ export default function WeatherPage() {
       <StyledWeatherDay>
         <StyledRowSection>
           <h5>
-            Tomorrow, {tomorrowWeekday}, {data.forecast.forecastday[1].date}
+            Tomorrow, {tomorrowWeekday},{" "}
+            {new Date(data.forecast.forecastday[1].date).toLocaleDateString(
+              "de-DE"
+            )}
           </h5>
           <Image
             src={`https:${data.forecast.forecastday[1].day.condition.icon}`}
@@ -138,7 +144,11 @@ export default function WeatherPage() {
 
       <StyledWeatherDay>
         <StyledRowSection>
-          <h5>{data.forecast.forecastday[2].date}</h5>
+          <h5>
+            {new Date(data.forecast.forecastday[2].date).toLocaleDateString(
+              "de-DE"
+            )}
+          </h5>
           <Image
             src={`https:${data.forecast.forecastday[2].day.condition.icon}`}
             alt="weather icon"
@@ -159,7 +169,11 @@ export default function WeatherPage() {
 
       <StyledWeatherDay>
         <StyledRowSection>
-          <h5>{data.forecast.forecastday[3].date}</h5>
+          <h5>
+            {new Date(data.forecast.forecastday[3].date).toLocaleDateString(
+              "de-DE"
+            )}
+          </h5>
           <Image
             src={`https:${data.forecast.forecastday[3].day.condition.icon}`}
             alt="weather icon"
@@ -180,7 +194,11 @@ export default function WeatherPage() {
 
       <StyledWeatherDay>
         <StyledRowSection>
-          <h5>{data.forecast.forecastday[4].date}</h5>
+          <h5>
+            {new Date(data.forecast.forecastday[4].date).toLocaleDateString(
+              "de-DE"
+            )}
+          </h5>
           <Image
             src={`https:${data.forecast.forecastday[4].day.condition.icon}`}
             alt="weather icon"
@@ -201,7 +219,11 @@ export default function WeatherPage() {
 
       <StyledWeatherDay>
         <StyledRowSection>
-          <h5>{data.forecast.forecastday[5].date}</h5>
+          <h5>
+            {new Date(data.forecast.forecastday[5].date).toLocaleDateString(
+              "de-DE"
+            )}
+          </h5>
           <Image
             src={`https:${data.forecast.forecastday[5].day.condition.icon}`}
             alt="weather icon"
@@ -222,7 +244,11 @@ export default function WeatherPage() {
 
       <StyledWeatherDay>
         <StyledRowSection>
-          <h5>{data.forecast.forecastday[6].date}</h5>
+          <h5>
+            {new Date(data.forecast.forecastday[6].date).toLocaleDateString(
+              "de-DE"
+            )}
+          </h5>
           <Image
             src={`https:${data.forecast.forecastday[6].day.condition.icon}`}
             alt="weather icon"

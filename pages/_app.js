@@ -17,6 +17,11 @@ export default function App({ Component, pageProps }) {
 
   const [todos, setTodos] = useLocalStorageState("todos", { defaultValue: [] });
 
+  const [nextColonyChecks, setNextColonyChecks] = useLocalStorageState(
+    "nextColonyChecks",
+    { defaultValue: [] }
+  );
+
   function handleAddLocation(newLocation) {
     setLocations([...locations, { ...newLocation, id: nanoid() }]);
   }
@@ -47,6 +52,8 @@ export default function App({ Component, pageProps }) {
           setTodos={setTodos}
           setLocations={setLocations}
           setColonies={setColonies}
+          nextColonyChecks={nextColonyChecks}
+          setNextColonyChecks={setNextColonyChecks}
         />
       </Layout>
     </>
