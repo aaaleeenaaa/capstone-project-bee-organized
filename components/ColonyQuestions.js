@@ -223,7 +223,7 @@ export default function ColonyQuestions({ currentColony }) {
       </StyledFieldset>
 
       <StyledFieldset>
-        <StyledLegend htmlFor="question7">7. Honigräume?</StyledLegend>
+        <StyledLegend>7. Honigräume?</StyledLegend>
         <div>
           <label htmlFor="question7answer1">1</label>
           <input
@@ -277,7 +277,7 @@ export default function ColonyQuestions({ currentColony }) {
       </StyledFieldset>
 
       <StyledFieldset>
-        <StyledLegend htmlFor="question9">9. Ameisensäure?</StyledLegend>
+        <StyledLegend>9. Ameisensäure?</StyledLegend>
         <input
           id="question9answer1"
           name="question9answer1"
@@ -297,7 +297,7 @@ export default function ColonyQuestions({ currentColony }) {
       </StyledFieldset>
 
       <StyledFieldset>
-        <StyledLegend htmlFor="question10">10. Gefüttert?</StyledLegend>
+        <StyledLegend>10. Gefüttert?</StyledLegend>
         <input
           id="question10answer1"
           name="question10answer1"
