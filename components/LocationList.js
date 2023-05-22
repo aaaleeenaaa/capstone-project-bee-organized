@@ -54,13 +54,13 @@ export default function LocationList({ locations, setLocations }) {
               <StyledEditDeleteButton
                 onClick={() => handleEditClick(location)}
                 icon={FaRegEdit}
-                ariaLabel={"edit"}
+                ariaLabel="edit"
                 right="1.3rem"
               />
               <StyledEditDeleteButton
                 onClick={() => handleDeleteClick(location)}
                 icon={TiDelete}
-                ariaLabel={"delete"}
+                ariaLabel="delete"
                 padding="0.2rem 0.5rem 0 0.3rem"
               />
             </CardElement>

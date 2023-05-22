@@ -52,7 +52,7 @@ export default function ToDoList({ todos, setTodos }) {
             <StyledEditDeleteButton
               onClick={() => handleDeleteClick(todo)}
               icon={TiDelete}
-              ariaLabel={"delete"}
+              ariaLabel="delete"
               padding="0.3rem 0 0 0"
               right="-4rem"
             />
