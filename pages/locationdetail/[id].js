@@ -2,7 +2,7 @@ import Card from "@/components/Card";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import StyledAddLink, { StyledBackLink } from "@/components/StyledLinks";
-import { StyledSection } from "@/components/StyledSections";
+import { CardElement, StyledSection } from "@/components/StyledSections";
 import { StyledRowSection } from "@/components/StyledSections";
 import useLocalStorageState from "use-local-storage-state";
 import { FormContainer, Label, Input } from "@/components/StyledFormElements";
@@ -16,6 +16,7 @@ import {
   StyledLabel,
   StyledTextArea,
 } from "@/components/StyledQuestionElements";
+import { StyledLink } from "@/components/StyledLinks";
 
 export default function LocationDetailsPage({
   locations,
@@ -98,20 +99,23 @@ export default function LocationDetailsPage({
         {filteredColonies.map((colony) => {
           return (
             <StyledRowSection key={colony.id}>
-              <Link href={`/colonydetail/${colony.id}`}>
-                <Card text={colony?.colonyName} />
-              </Link>
-              <StyledEditDeleteButton
-                onClick={() => handleEditClick(colony)}
-                icon={FaRegEdit}
-                ariaLabel={"edit"}
-              />
-              <StyledEditDeleteButton
-                onClick={() => handleDeleteClick(colony)}
-                icon={TiDelete}
-                ariaLabel={"delete"}
-                padding="0.2rem 0.5rem 0 0.3rem"
-              />
+              <CardElement padding="1.8rem 0.5rem">
+                <StyledLink href={`/colonydetail/${colony.id}`}>
+                  {colony?.colonyName}
+                </StyledLink>
+                <StyledEditDeleteButton
+                  onClick={() => handleEditClick(colony)}
+                  icon={FaRegEdit}
+                  ariaLabel={"edit"}
+                  right="1.3rem"
+                />
+                <StyledEditDeleteButton
+                  onClick={() => handleDeleteClick(colony)}
+                  icon={TiDelete}
+                  ariaLabel={"delete"}
+                  padding="0.2rem 0.5rem 0 0.3rem"
+                />
+              </CardElement>
             </StyledRowSection>
           );
         })}

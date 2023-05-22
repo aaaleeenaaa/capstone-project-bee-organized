@@ -1,21 +1,14 @@
 import { StyledLink } from "@/components/StyledLinks";
 import styled from "styled-components";
 import { StyledSection } from "@/components/StyledSections";
-
-const StyledOverviewCard = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px grey solid;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  width: 18rem;
-`;
+import { CardElement } from "@/components/StyledSections";
 
 const StyledOverviewColony = styled.article`
-  padding: 1rem;
-  border: 1px solid grey;
+  padding: 1rem 0.5rem;
   margin: 0.3rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  word-wrap: break-word;
 `;
 
 const StyledColonySection = styled.section`
@@ -37,7 +30,7 @@ export default function OverviewPage({ locations, colonies }) {
           (colony) => colony.locationId === location.id
         );
         return (
-          <StyledOverviewCard key={location.id}>
+          <CardElement key={location.id} width="20rem">
             <StyledLink href={`/locationdetail/${location.id}`}>
               <StyledOverviewLocation>
                 {location.locationName}
@@ -52,7 +45,7 @@ export default function OverviewPage({ locations, colonies }) {
                 </StyledLink>
               ))}
             </StyledColonySection>
-          </StyledOverviewCard>
+          </CardElement>
         );
       })}
     </StyledSection>

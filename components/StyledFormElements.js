@@ -7,7 +7,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   padding: 0.5rem;
   font-size: inherit;
-  border: 3px solid black;
+  border: 1px solid black;
   border-radius: 0.5rem;
 `;
 

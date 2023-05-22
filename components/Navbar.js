@@ -1,37 +1,45 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
 import { AiFillHome } from "react-icons/ai";
 import { GiBeehive } from "react-icons/gi";
 import { TiWeatherPartlySunny } from "react-icons/ti";
-import { GrTask } from "react-icons/gr";
-import { CgProfile } from "react-icons/cg";
-import { useState } from "react";
+import { TbList } from "react-icons/tb";
+import useLocalStorageState from "use-local-storage-state";
 
 const Navbar = styled.nav`
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
-  margin: 0;
-  padding: 0.2em 0.8em;
   text-align: center;
-  border: 3px solid black;
-  font-size: 2em;
-  background-color: #f2ee74;
+  font-size: 1.8rem;
+  background-color: #ded533;
   z-index: 1;
   display: flex;
-  justify-content: space-between;
-  height: 3.5rem;
+  justify-content: space-around;
+  align-items: center;
+  height: 3.2rem;
 `;
 
 const NavSection = styled.section`
-  background-color: ${(props) => (props.isActive ? "#8aa838" : "transparent")};
+  background-color: transparent;
+  ${(props) =>
+    props.isActive &&
+    css`
+      background-color: #b8b01c;
+      border-radius: 10%;
+      font-size: 2rem;
+    `}
 `;
+
 export default function NavBar() {
-  const [activeItem, setActiveItem] = useState("home");
+  const [activeItem, setActiveItem] = useLocalStorageState("activeItem", {
+    defaultValue: "home",
+  });
+
   function handleClick(item) {
     setActiveItem(item);
   }
+
   return (
     <Navbar>
       <Link href="/">
@@ -39,39 +47,34 @@ export default function NavBar() {
           isActive={activeItem === "home"}
           onClick={() => handleClick("home")}
         >
-          <AiFillHome color="black" />
+          <AiFillHome color="#4b068c" />
         </NavSection>
       </Link>
+
       <Link href="/overview">
         <NavSection
           isActive={activeItem === "overview"}
           onClick={() => handleClick("overview")}
         >
-          <GiBeehive color="black" />
+          <GiBeehive color="#4b068c" />
         </NavSection>
       </Link>
+
       <Link href="/weather">
         <NavSection
           isActive={activeItem === "weather"}
           onClick={() => handleClick("weather")}
         >
-          <TiWeatherPartlySunny color="black" />
+          <TiWeatherPartlySunny color="#4b068c" />
         </NavSection>
       </Link>
+
       <Link href="/todolist">
         <NavSection
           isActive={activeItem === "todo"}
           onClick={() => handleClick("todo")}
         >
-          <GrTask color="black" />
-        </NavSection>
-      </Link>
-      <Link href="/profile">
-        <NavSection
-          isActive={activeItem === "profile"}
-          onClick={() => handleClick("profile")}
-        >
-          <CgProfile color="black" />
+          <TbList color="#4b068c" />
         </NavSection>
       </Link>
     </Navbar>
