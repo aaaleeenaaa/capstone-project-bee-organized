@@ -1,20 +1,22 @@
 import styled from "styled-components";
 
-export const StyledQuestionCard = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid grey;
-  padding: ${(props) => props.padding || "1em"};
-  width: ${(props) => props.width || "90%"};
-  margin: ${(props) => props.margin || "0"};
-`;
-
-export const StyledQuestionLabel = styled.label`
+export const StyledLabel = styled.label`
   font-style: italic;
   text-align: center;
 `;
 
-export const StyledQuestionTextArea = styled.textarea`
+export const StyledTextArea = styled.textarea`
   width: 15rem;
+`;
+
+export const StyledFieldset = styled.fieldset`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  padding: 1em;
+`;
+
+export const StyledLegend = styled.legend`
+  text-align: center;
 `;

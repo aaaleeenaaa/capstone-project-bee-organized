@@ -11,12 +11,11 @@ import { useState } from "react";
 import { StyledEditDeleteButton } from "@/components/StyledButtons";
 import { FaRegEdit } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
-import {
-  StyledQuestionCard,
-  StyledQuestionLabel,
-  StyledQuestionTextArea,
-} from "@/components/StyledQuestionElements";
 import GeneralNotes from "@/components/GeneralNotes";
+import {
+  StyledLabel,
+  StyledTextArea,
+} from "@/components/StyledQuestionElements";
 
 export default function LocationDetailsPage({
   locations,
@@ -37,6 +36,11 @@ export default function LocationDetailsPage({
   });
 
   const [editingColony, setEditingColony] = useState(null);
+
+  const [formData, setFormData] = useLocalStorageState(
+    `formData_${currentLocation?.id}`,
+    { defaultValue: [] }
+  );
 
   function handleEditClick(colony) {
     setEditingColony(colony);
@@ -61,6 +65,11 @@ export default function LocationDetailsPage({
     setColonies(colonies.filter((colony) => colony.id !== colonyToDelete.id));
   }
 
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  }
+
   return (
     <>
       <StyledSection>
@@ -73,6 +82,18 @@ export default function LocationDetailsPage({
           isLocation={true}
           currentLocation={currentLocation}
         />
+
+        <FormContainer marginBottom="1rem">
+          <StyledLabel htmlFor="material">Material:</StyledLabel>
+          <StyledTextArea
+            id="material"
+            name="material"
+            rows="15"
+            minLength="3"
+            value={formData.material || ""}
+            onChange={handleInputChange}
+          />
+        </FormContainer>
 
         {filteredColonies.map((colony) => {
           return (
