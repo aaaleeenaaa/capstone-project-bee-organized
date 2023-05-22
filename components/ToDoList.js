@@ -13,7 +13,6 @@ const StyledTodoListElement = styled.li`
 `;
 
 const StyledTodoLabel = styled.label`
-  flex-grow: initial;
   margin-right: 1rem;
 `;
 
