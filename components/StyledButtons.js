@@ -9,8 +9,13 @@ const SubmitButton = styled.button`
 const EditDeleteButton = styled.button`
   height: 1.7rem;
   width: 1.7rem;
-  margin-left: 0.3rem;
-  padding: ${(props) => (props.padding ? props.padding : "0")};
+  background-color: transparent;
+  border: none;
+  top: 0;
+  padding: ${(props) => props.padding || "0"};
+  right: ${(props) => props.right || "0"};
+  font-size: 1.1rem;
+  position: absolute;
 `;
 
 const SearchButton = styled.button`
@@ -22,7 +27,13 @@ export default function StyledSubmitButton() {
   return <SubmitButton type="submit">Submit</SubmitButton>;
 }
 
-export function StyledEditDeleteButton({ onClick, icon, ariaLabel, padding }) {
+export function StyledEditDeleteButton({
+  onClick,
+  icon,
+  ariaLabel,
+  padding,
+  right,
+}) {
   const Icon = icon;
   return (
     <EditDeleteButton
@@ -30,6 +41,7 @@ export function StyledEditDeleteButton({ onClick, icon, ariaLabel, padding }) {
       onClick={onClick}
       aria-label={ariaLabel}
       padding={padding}
+      right={right}
     >
       <Icon />
     </EditDeleteButton>

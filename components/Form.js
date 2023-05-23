@@ -18,7 +18,7 @@ export default function Form({ onSubmit, formTopic, label }) {
         id={formTopic}
         name={formTopic}
         type="text"
-        maxLength="30"
+        maxLength="25"
         minLength="3"
         required
       />

@@ -6,6 +6,14 @@ import { TiDelete } from "react-icons/ti";
 const StyledTodoListElement = styled.li`
   text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
   list-style-type: none;
+  font-size: 1.4rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
+
+const StyledTodoLabel = styled.label`
+  margin-right: 1rem;
 `;
 
 export default function ToDoList({ todos, setTodos }) {
@@ -32,7 +40,7 @@ export default function ToDoList({ todos, setTodos }) {
       {todos.map((todo) => {
         return (
           <StyledTodoListElement key={todo.id} completed={todo.completed}>
-            <label htmlFor="todo">{todo?.todo}</label>
+            <StyledTodoLabel htmlFor="todo">{todo?.todo}</StyledTodoLabel>
             <input
               type="checkbox"
               checked={todo.completed}
@@ -40,11 +48,13 @@ export default function ToDoList({ todos, setTodos }) {
               id="todo"
               name="todo"
             />
+
             <StyledEditDeleteButton
               onClick={() => handleDeleteClick(todo)}
               icon={TiDelete}
-              ariaLabel={"delete"}
-              padding="0.2rem 0.5rem 0 0.3rem"
+              ariaLabel="delete"
+              padding="0.3rem 0 0 0"
+              right="-4rem"
             />
           </StyledTodoListElement>
         );
