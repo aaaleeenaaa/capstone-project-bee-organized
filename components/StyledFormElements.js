@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 const StyledLabel = styled.label`
   font-weight: ${(props) => props.fontweight || "bold"};
   margin-right: ${(props) => props.marginright || "0"};
+  margin-left: ${(props) => props.marginleft || "0"};
   flex: 1;
   ${(props) =>
     props.centeredItalic &&

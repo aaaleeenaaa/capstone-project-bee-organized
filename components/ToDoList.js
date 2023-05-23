@@ -7,9 +7,8 @@ import { TiDeleteOutline } from "react-icons/ti";
 const StyledTodoListElement = styled.li`
   text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
   list-style-type: none;
-  font-size: 1.5rem;
   position: relative;
-  width: 16rem;
+  width: 18rem;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.5rem;
@@ -43,7 +42,19 @@ export default function ToDoList({ todos, setTodos }) {
       {todos.map((todo) => {
         return (
           <StyledTodoListElement key={todo.id} completed={todo.completed}>
-            <StyledLabel htmlFor="todo" marginright="1rem" fontweight="normal">
+            <StyledEditDeleteButton
+              onClick={() => handleDeleteClick(todo)}
+              icon={TiDeleteOutline}
+              ariaLabel="delete"
+              padding="0.1rem 0 0.5rem 0"
+              right="18rem"
+            />
+            <StyledLabel
+              htmlFor="todo"
+              marginright="1rem"
+              marginleft="1rem"
+              fontweight="normal"
+            >
               {todo?.todo}
             </StyledLabel>
             <input
@@ -52,14 +63,6 @@ export default function ToDoList({ todos, setTodos }) {
               onChange={() => handleTodoToggle(todo.id)}
               id="todo"
               name="todo"
-            />
-
-            <StyledEditDeleteButton
-              onClick={() => handleDeleteClick(todo)}
-              icon={TiDeleteOutline}
-              ariaLabel="delete"
-              padding="0.3rem 0 0 0"
-              right="17rem"
             />
           </StyledTodoListElement>
         );
