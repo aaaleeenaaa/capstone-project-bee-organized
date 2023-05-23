@@ -16,6 +16,7 @@ const StyledTodoListElement = styled.li`
   display: flex;
   white-space: pre-wrap;
   word-break: break-word;
+  display: flex;
 `;
 
 export default function ToDoList({ todos, setTodos }) {
