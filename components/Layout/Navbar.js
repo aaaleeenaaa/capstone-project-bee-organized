@@ -12,7 +12,7 @@ const Navbar = styled.nav`
   width: 100%;
   text-align: center;
   font-size: 1.8rem;
-  background-color: #ded533;
+  background-color: var(--yellow);
   z-index: 1;
   display: flex;
   justify-content: space-around;
@@ -25,7 +25,7 @@ const NavSection = styled.section`
   ${(props) =>
     props.isActive &&
     css`
-      background-color: #b8b01c;
+      background-color: var(--activeBackground);
       border-radius: 10%;
       font-size: 2rem;
     `}
@@ -47,7 +47,7 @@ export default function NavBar() {
           isActive={activeItem === "home"}
           onClick={() => handleClick("home")}
         >
-          <AiFillHome color="#4b068c" />
+          <AiFillHome color="var(--purple)" />
         </NavSection>
       </Link>
 
@@ -56,7 +56,7 @@ export default function NavBar() {
           isActive={activeItem === "overview"}
           onClick={() => handleClick("overview")}
         >
-          <GiBeehive color="#4b068c" />
+          <GiBeehive color="var(--purple)" />
         </NavSection>
       </Link>
 
@@ -65,7 +65,7 @@ export default function NavBar() {
           isActive={activeItem === "weather"}
           onClick={() => handleClick("weather")}
         >
-          <TiWeatherPartlySunny color="#4b068c" />
+          <TiWeatherPartlySunny color="var(--purple)" />
         </NavSection>
       </Link>
 
@@ -74,7 +74,7 @@ export default function NavBar() {
           isActive={activeItem === "todo"}
           onClick={() => handleClick("todo")}
         >
-          <TbList color="#4b068c" />
+          <TbList color="var(--purple)" />
         </NavSection>
       </Link>
     </Navbar>

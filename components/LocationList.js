@@ -1,4 +1,3 @@
-import Card from "./Card";
 import { StyledSection, StyledRowSection } from "./StyledSections";
 import useLocalStorageState from "use-local-storage-state";
 import { FormContainer, Label, Input } from "./StyledFormElements";

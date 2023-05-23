@@ -1,5 +1,5 @@
 import GlobalStyle from "../styles";
-import Layout from "../components/Layout.js";
+import Layout from "../components/Layout/Layout.js";
 import { nanoid } from "nanoid";
 import useLocalStorageState from "use-local-storage-state";
 import Modal from "react-modal";

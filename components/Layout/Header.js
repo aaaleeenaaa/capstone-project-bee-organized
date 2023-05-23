@@ -11,8 +11,8 @@ const Headline = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ded533;
-  color: #4b068c;
+  background-color: var(--yellow);
+  color: var(--purple);
   z-index: 1;
 `;
 

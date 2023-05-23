@@ -6,7 +6,7 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledTextArea = styled.textarea`
-  width: 15rem;
+  width: 19.4rem;
 `;
 
 export const StyledFieldset = styled.fieldset`
@@ -14,7 +14,7 @@ export const StyledFieldset = styled.fieldset`
   flex-direction: column;
   align-items: center;
   width: 90%;
-  padding: 1em;
+  padding: 1rem 5rem;
 `;
 
 export const StyledLegend = styled.legend`

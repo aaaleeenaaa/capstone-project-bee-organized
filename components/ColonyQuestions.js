@@ -1,7 +1,6 @@
 import { FormContainer } from "./StyledFormElements";
 import useLocalStorageState from "use-local-storage-state";
 import {
-  StyledCard,
   StyledLabel,
   StyledFieldset,
   StyledLegend,
@@ -26,6 +25,7 @@ export default function ColonyQuestions({ currentColony }) {
     updatedChecks.push({
       date: value,
       colonyName: currentColony?.colonyName,
+      colonyId: currentColony?.id,
     });
     setNextColonyChecks(updatedChecks);
   }

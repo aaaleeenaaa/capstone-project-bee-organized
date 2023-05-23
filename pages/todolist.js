@@ -1,11 +1,6 @@
 import ToDoList from "@/components/ToDoList";
-import Link from "next/link";
-import styled from "styled-components";
+import { StyledLink } from "@/components/StyledLinks";
 import { StyledSection } from "@/components/StyledSections";
-
-const StyledToDoLink = styled(Link)`
-  margin-left: 18rem;
-`;
 
 export default function ToDoListPage({ todos, setTodos, nextColonyChecks }) {
   const sortedChecks = nextColonyChecks.sort(
@@ -15,8 +10,9 @@ export default function ToDoListPage({ todos, setTodos, nextColonyChecks }) {
   return (
     <>
       <ToDoList todos={todos} setTodos={setTodos} />
-      <StyledToDoLink href="/addtodo">Add ToDo</StyledToDoLink>
-
+      <StyledLink href="/addtodo" marginleft="18rem">
+        Add ToDo
+      </StyledLink>
       <StyledSection>
         <h5>Next colony checks:</h5>
         {sortedChecks.map((check, index) => (
@@ -27,7 +23,10 @@ export default function ToDoListPage({ todos, setTodos, nextColonyChecks }) {
                 month: "numeric",
                 year: "numeric",
               })}{" "}
-              - {check.colonyName}
+              -{" "}
+              <StyledLink href={`/colonydetail/${check.colonyId}`}>
+                {check.colonyName}
+              </StyledLink>
             </p>
           </div>
         ))}
