@@ -1,9 +1,9 @@
-import { CardElement } from "./StyledSections";
+import { StyledCardElement } from "./StyledCardElement";
 
 export default function Card({ text }) {
   return (
-    <CardElement>
+    <StyledCardElement>
       <p>{text}</p>
-    </CardElement>
+    </StyledCardElement>
   );
 }

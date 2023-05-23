@@ -1,6 +1,6 @@
 import ToDoList from "@/components/ToDoList";
 import { StyledLink } from "@/components/StyledLinks";
-import { StyledSection } from "@/components/StyledSections";
+import { StyledSection, StyledRowSection } from "@/components/StyledSections";
 
 export default function ToDoListPage({ todos, setTodos, nextColonyChecks }) {
   const sortedChecks = nextColonyChecks.sort(
@@ -10,13 +10,13 @@ export default function ToDoListPage({ todos, setTodos, nextColonyChecks }) {
   return (
     <>
       <ToDoList todos={todos} setTodos={setTodos} />
-      <StyledLink href="/addtodo" marginleft="18rem">
+      <StyledLink href="/addtodo" marginleft="17.5rem">
         Add ToDo
       </StyledLink>
       <StyledSection>
-        <h5>Next colony checks:</h5>
+        <h4>Next colony checks:</h4>
         {sortedChecks.map((check, index) => (
-          <div key={index}>
+          <StyledRowSection key={index}>
             <p>
               {new Date(check.date).toLocaleDateString("de-DE", {
                 day: "numeric",
@@ -28,7 +28,7 @@ export default function ToDoListPage({ todos, setTodos, nextColonyChecks }) {
                 {check.colonyName}
               </StyledLink>
             </p>
-          </div>
+          </StyledRowSection>
         ))}
       </StyledSection>
     </>

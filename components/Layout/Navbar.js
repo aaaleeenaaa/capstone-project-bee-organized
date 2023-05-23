@@ -6,7 +6,7 @@ import { TiWeatherPartlySunny } from "react-icons/ti";
 import { TbList } from "react-icons/tb";
 import useLocalStorageState from "use-local-storage-state";
 
-const Navbar = styled.nav`
+const StyledNavbar = styled.nav`
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -18,9 +18,10 @@ const Navbar = styled.nav`
   justify-content: space-around;
   align-items: center;
   height: 3.2rem;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
 `;
 
-const NavSection = styled.section`
+const StyledNavSection = styled.section`
   background-color: transparent;
   ${(props) =>
     props.isActive &&
@@ -41,42 +42,42 @@ export default function NavBar() {
   }
 
   return (
-    <Navbar>
+    <StyledNavbar>
       <Link href="/">
-        <NavSection
+        <StyledNavSection
           isActive={activeItem === "home"}
           onClick={() => handleClick("home")}
         >
           <AiFillHome color="var(--purple)" />
-        </NavSection>
+        </StyledNavSection>
       </Link>
 
       <Link href="/overview">
-        <NavSection
+        <StyledNavSection
           isActive={activeItem === "overview"}
           onClick={() => handleClick("overview")}
         >
           <GiBeehive color="var(--purple)" />
-        </NavSection>
+        </StyledNavSection>
       </Link>
 
       <Link href="/weather">
-        <NavSection
+        <StyledNavSection
           isActive={activeItem === "weather"}
           onClick={() => handleClick("weather")}
         >
           <TiWeatherPartlySunny color="var(--purple)" />
-        </NavSection>
+        </StyledNavSection>
       </Link>
 
       <Link href="/todolist">
-        <NavSection
+        <StyledNavSection
           isActive={activeItem === "todo"}
           onClick={() => handleClick("todo")}
         >
           <TbList color="var(--purple)" />
-        </NavSection>
+        </StyledNavSection>
       </Link>
-    </Navbar>
+    </StyledNavbar>
   );
 }

@@ -1,7 +1,7 @@
-import { StyledLink } from "@/components/StyledLinks";
 import styled from "styled-components";
+import { StyledLink } from "@/components/StyledLinks";
 import { StyledSection } from "@/components/StyledSections";
-import { CardElement } from "@/components/StyledSections";
+import { StyledCardElement } from "@/components/StyledCardElement";
 
 const StyledOverviewColony = styled.article`
   padding: 1rem 0.5rem;
@@ -11,7 +11,7 @@ const StyledOverviewColony = styled.article`
   word-wrap: break-word;
 `;
 
-const StyledColonySection = styled.section`
+const StyledOverviewColonySection = styled.section`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -30,13 +30,13 @@ export default function OverviewPage({ locations, colonies }) {
           (colony) => colony.locationId === location.id
         );
         return (
-          <CardElement key={location.id} width="20rem">
+          <StyledCardElement key={location.id} width="20rem">
             <StyledLink href={`/locationdetail/${location.id}`}>
               <StyledOverviewLocation>
                 {location.locationName}
               </StyledOverviewLocation>
             </StyledLink>
-            <StyledColonySection>
+            <StyledOverviewColonySection>
               {filteredColonies.map((colony) => (
                 <StyledLink href={`/colonydetail/${colony.id}`} key={colony.id}>
                   <StyledOverviewColony>
@@ -44,8 +44,8 @@ export default function OverviewPage({ locations, colonies }) {
                   </StyledOverviewColony>
                 </StyledLink>
               ))}
-            </StyledColonySection>
-          </CardElement>
+            </StyledOverviewColonySection>
+          </StyledCardElement>
         );
       })}
     </StyledSection>

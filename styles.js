@@ -6,6 +6,7 @@ export default createGlobalStyle`
 --yellow: #ded533;
 --purple: #4b068c;
 --activeBackground: #b8b01c;
+--link: #3c5e1a;
 --linkHover: #568726;
 }
 

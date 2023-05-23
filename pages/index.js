@@ -6,7 +6,7 @@ export default function HomePage({ locations, setLocations }) {
     <>
       <LocationList locations={locations} setLocations={setLocations} />
 
-      <StyledLink href={"/addlocation"} marginleft="17rem">
+      <StyledLink href={"/addlocation"} marginleft="16rem">
         Add location
       </StyledLink>
     </>
