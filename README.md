@@ -42,7 +42,7 @@ The Capstone project "Bee organized" is a powerful tool that helps beekeepers ma
 
 ---
 
-## 🔮 Feautres
+## 🔮 Features
 
 ### Distinctive Features
 
