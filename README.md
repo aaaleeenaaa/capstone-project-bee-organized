@@ -218,12 +218,6 @@ repo
 
 ## 🚀 Getting Started
 
-### ✅ Prerequisites
-
-Before you begin, ensure that you have the following prerequisites installed:
-
-> `[📌  INSERT-PROJECT-PREREQUISITES]`
-
 ### 💻 Installation
 
 1. Clone the capstone-project-bee-organized repository:
