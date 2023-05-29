@@ -1,35 +1,57 @@
 import ToDoList from "@/components/ToDoList";
-import Link from "next/link";
-import styled from "styled-components";
-import { StyledSection } from "@/components/StyledSections";
+import { StyledLink } from "@/components/StyledLinks";
+import { StyledSection, StyledRowSection } from "@/components/StyledSections";
+import { StyledEditDeleteButton } from "@/components/StyledButtons";
+import { TiDeleteOutline } from "react-icons/ti";
 
-const StyledToDoLink = styled(Link)`
-  margin-left: 18rem;
-`;
-
-export default function ToDoListPage({ todos, setTodos, nextColonyChecks }) {
+export default function ToDoListPage({
+  todos,
+  setTodos,
+  nextColonyChecks,
+  setNextColonyChecks,
+}) {
   const sortedChecks = nextColonyChecks.sort(
     (a, b) => new Date(a.date) - new Date(b.date)
   );
 
+  function handleDeleteClick(nextColonyCheckToDelete) {
+    setNextColonyChecks(
+      nextColonyChecks.filter(
+        (nextColonyCheck) =>
+          nextColonyCheck.colonyId !== nextColonyCheckToDelete.colonyId
+      )
+    );
+  }
+
   return (
     <>
       <ToDoList todos={todos} setTodos={setTodos} />
-      <StyledToDoLink href="/addtodo">Add ToDo</StyledToDoLink>
-
+      <StyledLink href="/addtodo" marginleft="17.5rem">
+        Add ToDo
+      </StyledLink>
       <StyledSection>
-        <h5>Next colony checks:</h5>
+        <h4>Next colony checks:</h4>
         {sortedChecks.map((check, index) => (
-          <div key={index}>
+          <StyledRowSection key={index}>
             <p>
               {new Date(check.date).toLocaleDateString("de-DE", {
                 day: "numeric",
                 month: "numeric",
                 year: "numeric",
               })}{" "}
-              - {check.colonyName}
+              -{" "}
+              <StyledLink href={`/colonydetail/${check.colonyId}`}>
+                {check.colonyName}
+              </StyledLink>
             </p>
-          </div>
+            <StyledEditDeleteButton
+              onClick={() => handleDeleteClick(check)}
+              icon={TiDeleteOutline}
+              ariaLabel="delete"
+              right="-4rem"
+              padding="1rem 0 0 0"
+            />
+          </StyledRowSection>
         ))}
       </StyledSection>
     </>

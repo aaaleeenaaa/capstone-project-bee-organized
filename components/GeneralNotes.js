@@ -1,4 +1,4 @@
-import { StyledLabel, StyledTextArea } from "./StyledQuestionElements";
+import { StyledLabel, StyledTextArea } from "./StyledFormElements";
 import useLocalStorageState from "use-local-storage-state";
 
 export default function GeneralNotes({
@@ -20,7 +20,11 @@ export default function GeneralNotes({
 
   return (
     <>
-      <StyledLabel htmlFor="generalNotes">
+      <StyledLabel
+        htmlFor="generalNotes"
+        centeredItalic={true}
+        fontweight="normal"
+      >
         {isLocation
           ? "General notes about the location:"
           : "General notes about the colony:"}

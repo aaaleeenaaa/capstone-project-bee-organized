@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Head from "next/head";
 import NavBar from "./Navbar.js";
 
-const Main = styled.main`
+const StyledMain = styled.main`
   margin-top: 5rem;
   margin-bottom: 4.5rem;
 `;
@@ -15,7 +15,7 @@ export default function Layout({ children }) {
         <title>Bee organized</title>
       </Head>
       <Header />
-      <Main>{children}</Main>
+      <StyledMain>{children}</StyledMain>
       <NavBar />
     </>
   );

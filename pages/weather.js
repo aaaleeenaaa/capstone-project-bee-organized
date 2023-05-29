@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import Image from "next/image";
 import { StyledSection, StyledRowSection } from "@/components/StyledSections";
-import { Label, Input } from "@/components/StyledFormElements";
+import { StyledLabel, StyledInput } from "@/components/StyledFormElements";
 import { StyledSearchButton } from "@/components/StyledButtons";
-import { CardElement } from "@/components/StyledSections";
+import { StyledCardElement } from "@/components/StyledCardElement";
 
 export default function WeatherPage() {
   const [weatherLocation, setWeatherLocation] = useLocalStorageState(
@@ -66,8 +66,8 @@ export default function WeatherPage() {
   return (
     <StyledSection>
       <form onSubmit={handleLocationSubmit}>
-        <Label htmlFor="weatherLocation">City: {""}</Label>
-        <Input
+        <StyledLabel htmlFor="weatherLocation">City: {""}</StyledLabel>
+        <StyledInput
           id="weatherLocation"
           name="weatherLocation"
           type="text"
@@ -80,7 +80,7 @@ export default function WeatherPage() {
 
       <p>Current city: {weatherLocation}</p>
 
-      <CardElement width="21rem" padding="0.8rem">
+      <StyledCardElement width="21rem" padding="0.8rem">
         <StyledRowSection>
           <h5>
             Today, {todayWeekday},{" "}
@@ -104,9 +104,9 @@ export default function WeatherPage() {
           Probability of Rain:{" "}
           {data.forecast.forecastday[0].day.daily_chance_of_rain}%
         </p>
-      </CardElement>
+      </StyledCardElement>
 
-      <CardElement width="21rem" padding="0.8rem">
+      <StyledCardElement width="21rem" padding="0.8rem">
         <StyledRowSection>
           <h5>
             Tomorrow, {tomorrowWeekday},{" "}
@@ -130,9 +130,9 @@ export default function WeatherPage() {
           Probability of Rain:{" "}
           {data.forecast.forecastday[1].day.daily_chance_of_rain}%
         </p>
-      </CardElement>
+      </StyledCardElement>
 
-      <CardElement width="21rem" padding="0.8rem">
+      <StyledCardElement width="21rem" padding="0.8rem">
         <StyledRowSection>
           <h5>
             {new Date(data.forecast.forecastday[2].date).toLocaleDateString(
@@ -155,9 +155,9 @@ export default function WeatherPage() {
           Probability of Rain:{" "}
           {data.forecast.forecastday[2].day.daily_chance_of_rain}%
         </p>
-      </CardElement>
+      </StyledCardElement>
 
-      <CardElement width="21rem" padding="0.8rem">
+      <StyledCardElement width="21rem" padding="0.8rem">
         <StyledRowSection>
           <h5>
             {new Date(data.forecast.forecastday[3].date).toLocaleDateString(
@@ -180,9 +180,9 @@ export default function WeatherPage() {
           Probability of Rain:{" "}
           {data.forecast.forecastday[3].day.daily_chance_of_rain}%
         </p>
-      </CardElement>
+      </StyledCardElement>
 
-      <CardElement width="21rem" padding="0.8rem">
+      <StyledCardElement width="21rem" padding="0.8rem">
         <StyledRowSection>
           <h5>
             {new Date(data.forecast.forecastday[4].date).toLocaleDateString(
@@ -205,9 +205,9 @@ export default function WeatherPage() {
           Probability of Rain:{" "}
           {data.forecast.forecastday[4].day.daily_chance_of_rain}%
         </p>
-      </CardElement>
+      </StyledCardElement>
 
-      <CardElement width="21rem" padding="0.8rem">
+      <StyledCardElement width="21rem" padding="0.8rem">
         <StyledRowSection>
           <h5>
             {new Date(data.forecast.forecastday[5].date).toLocaleDateString(
@@ -230,9 +230,9 @@ export default function WeatherPage() {
           Probability of Rain:{" "}
           {data.forecast.forecastday[5].day.daily_chance_of_rain}%
         </p>
-      </CardElement>
+      </StyledCardElement>
 
-      <CardElement width="21rem" padding="0.8rem">
+      <StyledCardElement width="21rem" padding="0.8rem">
         <StyledRowSection>
           <h5>
             {new Date(data.forecast.forecastday[6].date).toLocaleDateString(
@@ -255,7 +255,7 @@ export default function WeatherPage() {
           Probability of Rain:{" "}
           {data.forecast.forecastday[6].day.daily_chance_of_rain}%
         </p>
-      </CardElement>
+      </StyledCardElement>
     </StyledSection>
   );
 }

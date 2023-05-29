@@ -23,7 +23,7 @@ const SearchButton = styled.button`
   margin-left: 0.4rem;
 `;
 
-export default function StyledSubmitButton() {
+export function StyledSubmitButton() {
   return <SubmitButton type="submit">Submit</SubmitButton>;
 }
 

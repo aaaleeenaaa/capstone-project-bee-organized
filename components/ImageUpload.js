@@ -3,7 +3,7 @@ import Image from "next/image";
 import useLocalStorageState from "use-local-storage-state";
 import { StyledEditDeleteButton } from "./StyledButtons";
 import { TiDelete } from "react-icons/ti";
-import { FormContainer } from "./StyledFormElements";
+import { StyledFormContainer } from "./StyledFormElements";
 import { StyledSection, StyledRowSection } from "./StyledSections";
 
 export default function ImageUpload({ currentColony }) {
@@ -68,10 +68,8 @@ export default function ImageUpload({ currentColony }) {
   return (
     <StyledSection>
       <h3>Image Upload</h3>
-      <FormContainer onSubmit={handleFileUpload} marginBottom="1rem">
-        <p>
-          <label htmlFor="avatar">Please choose an image</label>
-        </p>
+      <StyledFormContainer onSubmit={handleFileUpload} marginBottom="1rem">
+        <label htmlFor="avatar">Please choose an image</label>
         <input
           type="file"
           id="avatar"
@@ -90,13 +88,13 @@ export default function ImageUpload({ currentColony }) {
         <button type="submit" disabled={!image}>
           {isUploading ? "Uploading …" : "Upload"}
         </button>
-      </FormContainer>
+      </StyledFormContainer>
 
       {uploadedImages &&
         uploadedImages
           .filter((image) => image.currentColony === currentColony.id)
           .map((image) => (
-            <StyledRowSection key={image.public_id} marginBottom="1rem">
+            <StyledRowSection key={image.public_id} marginbottom="1rem">
               <Image
                 src={image.secure_url}
                 width={200}
@@ -107,8 +105,9 @@ export default function ImageUpload({ currentColony }) {
               <StyledEditDeleteButton
                 onClick={() => handleDeleteImage(image.public_id)}
                 icon={TiDelete}
-                ariaLabel={"delete"}
-                padding="0.2rem 0.5rem 0 0.3rem"
+                ariaLabel="delete"
+                padding="5.5rem 0.5rem 0 0.3rem"
+                right="-2.5rem"
               />
             </StyledRowSection>
           ))}

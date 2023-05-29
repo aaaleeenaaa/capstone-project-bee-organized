@@ -1,14 +1,17 @@
-import Card from "./Card";
 import { StyledSection, StyledRowSection } from "./StyledSections";
 import useLocalStorageState from "use-local-storage-state";
-import { FormContainer, Label, Input } from "./StyledFormElements";
+import {
+  StyledFormContainer,
+  StyledLabel,
+  StyledInput,
+} from "./StyledFormElements";
 import { StyledEditModal } from "./StyledEditModal";
 import { StyledLink } from "./StyledLinks";
 import { useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { StyledEditDeleteButton } from "./StyledButtons";
-import { TiDelete } from "react-icons/ti";
-import { CardElement } from "./StyledSections";
+import { TiDeleteOutline } from "react-icons/ti";
+import { StyledCardElement } from "./StyledCardElement";
 
 export default function LocationList({ locations, setLocations }) {
   const [showModal, setShowModal] = useLocalStorageState("showModal", {
@@ -47,7 +50,7 @@ export default function LocationList({ locations, setLocations }) {
       {locations.map((location) => {
         return (
           <StyledRowSection key={location.id}>
-            <CardElement padding="1.8rem 0.5rem">
+            <StyledCardElement padding="1.8rem 0.5rem">
               <StyledLink href={`/locationdetail/${location.id}`}>
                 {location?.locationName}
               </StyledLink>
@@ -59,32 +62,32 @@ export default function LocationList({ locations, setLocations }) {
               />
               <StyledEditDeleteButton
                 onClick={() => handleDeleteClick(location)}
-                icon={TiDelete}
+                icon={TiDeleteOutline}
                 ariaLabel="delete"
                 padding="0.2rem 0.5rem 0 0.3rem"
               />
-            </CardElement>
+            </StyledCardElement>
           </StyledRowSection>
         );
       })}
       <StyledEditModal isOpen={showModal}>
-        <FormContainer onSubmit={handleSubmit}>
-          <Label>
+        <StyledFormContainer onSubmit={handleSubmit}>
+          <StyledLabel>
             Edit Location: {""}
-            <Input
+            <StyledInput
               type="text"
               name="locationName"
               defaultValue={editingLocation?.locationName || ""}
-              maxLength="30"
+              maxLength="25"
               minLength="3"
               required
             />
-          </Label>
+          </StyledLabel>
           <button type="submit">Save</button>
           <button onClick={() => setShowModal(false)} type="button">
             Cancel
           </button>
-        </FormContainer>
+        </StyledFormContainer>
       </StyledEditModal>
     </StyledSection>
   );

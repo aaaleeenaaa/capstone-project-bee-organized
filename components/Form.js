@@ -1,6 +1,10 @@
 import React from "react";
-import StyledSubmitButton from "./StyledButtons";
-import { Label, Input, FormContainer } from "./StyledFormElements";
+import { StyledSubmitButton } from "./StyledButtons";
+import {
+  StyledLabel,
+  StyledInput,
+  StyledFormContainer,
+} from "./StyledFormElements";
 
 export default function Form({ onSubmit, formTopic, label }) {
   function handleSubmit(event) {
@@ -12,9 +16,9 @@ export default function Form({ onSubmit, formTopic, label }) {
   }
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
-      <Label htmlFor={formTopic}>{label}</Label>
-      <Input
+    <StyledFormContainer onSubmit={handleSubmit}>
+      <StyledLabel htmlFor={formTopic}>{label}</StyledLabel>
+      <StyledInput
         id={formTopic}
         name={formTopic}
         type="text"
@@ -23,6 +27,6 @@ export default function Form({ onSubmit, formTopic, label }) {
         required
       />
       <StyledSubmitButton />
-    </FormContainer>
+    </StyledFormContainer>
   );
 }

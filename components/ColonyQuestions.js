@@ -1,11 +1,10 @@
-import { FormContainer } from "./StyledFormElements";
 import useLocalStorageState from "use-local-storage-state";
 import {
-  StyledCard,
   StyledLabel,
   StyledFieldset,
   StyledLegend,
-} from "./StyledQuestionElements";
+  StyledFormContainer,
+} from "./StyledFormElements";
 import GeneralNotes from "./GeneralNotes";
 
 export default function ColonyQuestions({ currentColony }) {
@@ -26,6 +25,7 @@ export default function ColonyQuestions({ currentColony }) {
     updatedChecks.push({
       date: value,
       colonyName: currentColony?.colonyName,
+      colonyId: currentColony?.id,
     });
     setNextColonyChecks(updatedChecks);
   }
@@ -35,12 +35,12 @@ export default function ColonyQuestions({ currentColony }) {
     const newValue = type === "checkbox" ? checked : value;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: newValue }));
     if (name === "nextColonyCheck") {
-      handleNextColonyCheckUpdate(newValue);
+      handleNextColonyCheckUpdate(newValue, currentColony?.colonyName);
     }
   }
 
   return (
-    <FormContainer>
+    <StyledFormContainer>
       <GeneralNotes currentColony={currentColony} />
 
       <StyledFieldset>
@@ -318,7 +318,11 @@ export default function ColonyQuestions({ currentColony }) {
 
       <StyledFieldset>
         <StyledLegend>Colony Check:</StyledLegend>
-        <StyledLabel htmlFor="lastColonyCheck">
+        <StyledLabel
+          htmlFor="lastColonyCheck"
+          centeredItalic={true}
+          fontweight="normal"
+        >
           Last check of colony:
         </StyledLabel>
         <input
@@ -328,7 +332,11 @@ export default function ColonyQuestions({ currentColony }) {
           value={formData.lastColonyCheck || ""}
           onChange={handleInputChange}
         />
-        <StyledLabel htmlFor="nextColonyCheck">
+        <StyledLabel
+          htmlFor="nextColonyCheck"
+          centeredItalic={true}
+          fontweight="normal"
+        >
           Next colony check due:
         </StyledLabel>
         <input
@@ -339,6 +347,6 @@ export default function ColonyQuestions({ currentColony }) {
           onChange={handleInputChange}
         />
       </StyledFieldset>
-    </FormContainer>
+    </StyledFormContainer>
   );
 }
